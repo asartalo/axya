@@ -1,0 +1,1459 @@
+extends ./layout.jade
+
+block content
+  // Fixed navbar
+  .navbar.navbar-default.navbar-fixed-top(role="navigation")
+    .container
+      .navbar-header
+        a.navbar-brand(href="#")
+          strong Axya #{''}
+          | Style Guide
+      ul.nav.navbar-nav.navbar-right
+        li.dropdown.active
+          a.dropdown-toggle(href="#", data-toggle="dropdown")
+            | Select an element:
+            = ' '
+            b.caret
+          ul.dropdown-menu.scroll-menu.sg-sect
+            li.divider(role="presentation")
+            li.dropdown-header(role="presentation") docs
+            li.active
+              a(href="#sg-about") About
+            li.divider(role="presentation")
+            li.dropdown-header(role="presentation") foundation
+            li
+              a(href="#sg-colors") Colors
+            li
+              a(href="#sg-grid") Grid
+            li
+              a(href="#sg-typography") Typography
+            li.divider(role="presentation")
+            li.dropdown-header(role="presentation") Base Styles
+            li
+              a(href="#sg-address") Address
+            li
+              a(href="#sg-badges") Badges
+            li
+              a(href="#sg-blockquote") Blockquote
+            li
+              a(href="#sg-buttons") Buttons
+            li
+              a(href="#sg-code") Code
+            li
+              a(href="#sg-definition-lists") Definition Lists
+            li
+              a(href="#sg-form-controls") Form Controls
+            li
+              a(href="#sg-headings") Headings
+            li
+              a(href="#sg-images") Images
+            li
+              a(href="#sg-labels") Labels
+            li
+              a(href="#sg-lists") Lists
+            li
+              a(href="#sg-progress-bars") Progress Bars
+            li
+              a(href="#sg-tables") Tables
+            li
+              a(href="#sg-text-elements") Text Elements
+            li
+              a(href="#sg-well") Well
+            li.divider(role="presentation")
+            li.dropdown-header(role="presentation") Patterns
+            li
+              a(href="#sg-alerts") Alerts
+            li
+              a(href="#sg-breadcrumbs") Breadcrumbs
+            li
+              a(href="#sg-buttons-advanced") Buttons Advanced
+            li
+              a(href="#sg-dropdowns") Dropdowns
+            li
+              a(href="#sg-forms") Forms
+            li
+              a(href="#sg-hero") Hero
+            li
+              a(href="#sg-list-groups") List Groups
+            li
+              a(href="#sg-media-object") Media Object
+            li
+              a(href="#sg-navbar") Navbar
+            li
+              a(href="#sg-navs") Navs
+            li
+              a(href="#sg-page-header") Page Header
+            li
+              a(href="#sg-pager") Pager
+            li
+              a(href="#sg-pagination") Pagination
+            li
+              a(href="#sg-panels") Panels
+            li
+              a(href="#sg-thumbnails") Thumbnails
+
+  // /.sg-header
+  .sg-body.sg-container.container
+    .row
+      h1.page-header Style Guide Documentation
+      #sg-about.col-lg-12.sg-section
+        .sg-display
+          h2.sg-h2 about
+          p
+            | Comments and documentation about your style guide. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus nobis enim labore facilis consequuntur! Veritatis neque est suscipit tenetur temporibus enim
+    .row
+      h1.page-header Foundation
+      #sg-colors.col-lg-12.sg-section
+        .sg-display
+          h2.sg-h2 colors
+          h4 Main Colors
+          .sg-color.sg-brand-primary.sg-lg
+            span.sg-color-swatch
+              span.sg-animated #57DAE6
+          .sg-color.sg-gray-lighter.sg-lg
+            span.sg-color-swatch
+              span.sg-animated #57DAE6
+          .sg-color.sg-gray-light.sg-lg
+            span.sg-color-swatch
+              span.sg-animated #57DAE6
+          .sg-color.sg-gray.sg-lg
+            span.sg-color-swatch
+              span.sg-animated #57DAE6
+          .sg-color.sg-gray-dark.sg-lg
+            span.sg-color-swatch
+              span.sg-animated #4dd3c9
+          .sg-color.sg-gray-darker.sg-lg
+            span.sg-color-swatch
+              span.sg-animated #339db0
+          h4 Complementary Colors
+          .sg-color.sg-brand-success
+            span.sg-color-swatch
+              span.sg-animated #384355
+          .sg-color.sg-brand-warning
+            span.sg-color-swatch
+              span.sg-animated #384355
+          .sg-color.sg-brand-danger
+            span.sg-color-swatch
+              span.sg-animated #384355
+          .sg-color.sg-brand-info
+            span.sg-color-swatch
+              span.sg-animated #384355
+
+      #sg-grid.col-lg-12.sg-section
+        .sg-display
+          h2.sg-h2 grid
+          .row.show-grid
+            .col-md-1 .col-md-1
+            .col-md-1 .col-md-1
+            .col-md-1 .col-md-1
+            .col-md-1 .col-md-1
+            .col-md-1 .col-md-1
+            .col-md-1 .col-md-1
+            .col-md-1 .col-md-1
+            .col-md-1 .col-md-1
+            .col-md-1 .col-md-1
+            .col-md-1 .col-md-1
+            .col-md-1 .col-md-1
+            .col-md-1 .col-md-1
+          .row.show-grid
+            .col-md-8 .col-md-8
+            .col-md-4 .col-md-4
+          .row.show-grid
+            .col-md-4 .col-md-4
+            .col-md-4 .col-md-4
+            .col-md-4 .col-md-4
+          .row.show-grid
+            .col-md-6 .col-md-6
+            .col-md-6 .col-md-6
+
+      #sg-typography.col-lg-12.sg-section
+        .sg-display
+          h2.sg-h2 typography
+          h3.sg-h2 Font Stacks
+          p.sg-font "Open Sans", "HelveticaNeue", "Helvetica", Arial, sans-serif;
+
+    .row.sg-base-styles
+      h1.page-header Base Styles
+      #sg-address.col-lg-12.sg-section
+        .sg-display
+          h2.sg-h2 address
+          address
+            strong Twitter, Inc.
+            br
+            | 795 Folsom Ave, Suite 600
+            br
+            | San Francisco, CA 94107
+            br
+            abbr(title="Phone") P:
+            | (123) 456-7890
+          address
+            strong Full Name
+            br
+            a(href="mailto:#") first.last@example.com
+
+      #sg-blockquote.col-lg-12.sg-section
+        .sg-display
+          h2.sg-h2 blockquote
+          blockquote
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+          h3 Blockquote with attribution
+          blockquote
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+            footer
+              | Someone famous in
+              cite(title="Source Title") Source Title
+          h3 Right aligned
+          blockquote.blockquote-reverse
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+            footer
+              | Someone famous in
+              cite(title="Source Title") Source Title
+
+      #sg-buttons.col-lg-12.sg-section
+        .sg-display
+          h2.sg-h2 buttons
+          p
+            button.btn.btn-default(type="button") Default
+            = ' '
+            button.btn.btn-primary(type="button") Primary
+            = ' '
+            button.btn.btn-success(type="button") Success
+            = ' '
+            button.btn.btn-info(type="button") Info
+            = ' '
+            button.btn.btn-warning(type="button") Warning
+            = ' '
+            button.btn.btn-danger(type="button") Danger
+            = ' '
+            button.btn.btn-link(type="button") Link
+        p
+          button.btn.btn-default.disabled(type="button") Default
+          = ' '
+          button.btn.btn-primary.disabled(type="button") Primary
+          = ' '
+          button.btn.btn-success.disabled(type="button") Success
+          = ' '
+          button.btn.btn-info.disabled(type="button") Info
+          = ' '
+          button.btn.btn-warning.disabled(type="button") Warning
+          = ' '
+          button.btn.btn-danger.disabled(type="button") Danger
+          = ' '
+          button.btn.btn-link.disabled(type="button") Link
+        p
+          button.btn.btn-primary.btn-lg(type="button") Large
+          = ' '
+          button.btn.btn-primary.disabled(type="button") Disabled
+          = ' '
+          button.btn.btn-primary(type="button") Default
+          = ' '
+          button.btn.btn-primary.btn-sm(type="button") Small
+          = ' '
+          button.btn.btn-primary.btn-xs(type="button") Extra Small
+
+    #sg-code.col-lg-12.sg-section
+      .sg-display
+        h2.sg-h2 code
+        pre
+          | &lt;p&gt;A block of code is wrapped in pre tags&lt;/p&gt;
+        p
+          | For example,
+          = ' '
+          code &#60;section&#62;
+          |  should be wrapped as inline.
+        p
+          | To switch directories, type
+          = ' '
+          kbd cd
+          = ' '
+          | followed by the name of the directory.
+
+    #sg-definition-lists.col-lg-12.sg-section
+      .sg-display
+        h2.sg-h2 definition lists
+        dl
+          dt Description lists
+          dd A description list is perfect for defining terms.
+          dt Euismod
+          dd Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+          dd Donec id elit non mi porta gravida at eget metus.
+          dt Malesuada porta
+          dd Etiam porta sem malesuada magna mollis euismod.
+        h3 Horizontal
+        dl.dl-horizontal
+          dt Description lists
+          dd A description list is perfect for defining terms.
+          dt Euismod
+          dd Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+          dd Donec id elit non mi porta gravida at eget metus.
+          dt Malesuada porta
+          dd Etiam porta sem malesuada magna mollis euismod.
+          dt Felis euismod semper eget lacinia
+          dd
+            | Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+
+    #sg-form-controls.col-lg-12.sg-section
+      .sg-display
+        h2.sg-h2 form controls
+        input.form-control(type="text", placeholder="Text input")
+        input#disabledInput.form-control(type="text", placeholder="Disabled input here...", disabled="")
+        input.form-control.input-lg(type="text", placeholder=".input-lg")
+        input.form-control(type="text", placeholder="Default input")
+        input.form-control.input-sm(type="text", placeholder=".input-sm")
+        .row
+          .col-xs-2
+            input.form-control(type="text", placeholder=".col-xs-2")
+          .col-xs-3
+            input.form-control(type="text", placeholder=".col-xs-3")
+          .col-xs-4
+            input.form-control(type="text", placeholder=".col-xs-4")
+        .form-group.has-success.has-feedback
+          label.control-label(for="inputSuccess2") Input with success
+          input#inputSuccess2.form-control(type="text")
+          span.glyphicon.glyphicon-ok.form-control-feedback
+        .form-group.has-warning.has-feedback
+          label.control-label(for="inputWarning2") Input with warning
+          input#inputWarning2.form-control(type="text")
+          span.glyphicon.glyphicon-warning-sign.form-control-feedback
+        .form-group.has-error.has-feedback
+          label.control-label(for="inputError2") Input with error
+          input#inputError2.form-control(type="text")
+          span.glyphicon.glyphicon-remove.form-control-feedback
+        textarea.form-control(rows="3")
+        .checkbox
+          label
+            input(type="checkbox", value="")
+            | Option one is this and that&#8212;be sure to include why it"s great
+        .radio
+          label
+            input#optionsRadios1(type="radio", name="optionsRadios", value="option1", checked="")
+            | Option one is this and that&#8212;be sure to include why it"s great
+        .radio
+          label
+            input#optionsRadios2(type="radio", name="optionsRadios", value="option2")
+            | Option two can be something else and selecting it will deselect option one
+        h3 Inline checkboxes
+        label.checkbox-inline
+          input#inlineCheckbox1(type="checkbox", value="option1")
+          | 1
+        label.checkbox-inline
+          input#inlineCheckbox2(type="checkbox", value="option2")
+          | 2
+        label.checkbox-inline
+          input#inlineCheckbox3(type="checkbox", value="option3")
+          | 3
+        select.form-control
+          option 1
+          option 2
+          option 3
+          option 4
+          option 5
+        select.form-control(multiple="")
+          option 1
+          option 2
+          option 3
+          option 4
+          option 5
+
+    #sg-headings.col-lg-12.sg-section
+      .sg-display
+        h2.sg-h2 headings
+        h1.page-header
+          | Page Header
+          = ' '
+          small With Small Text
+        h1
+          | h1. Bootstrap heading
+          = ' '
+          small Secondary text
+        h2
+          | h2. Bootstrap heading
+          = ' '
+          small Secondary text
+        h3
+          | h3. Bootstrap heading
+          = ' '
+          small Secondary text
+        h4
+          | h4. Bootstrap heading
+          = ' '
+          small Secondary text
+        h5
+          | h5. Bootstrap heading
+          = ' '
+          small Secondary text
+        h6
+          | h6. Bootstrap heading
+          = ' '
+          small Secondary text
+
+    #sg-images.col-lg-12.sg-section
+      .sg-display
+        h2.sg-h2 images
+        p
+          img.img-rounded(src="http://placehold.it/120x100")
+          = ' '
+          img.img-circle(src="http://placehold.it/120x100")
+          = ' '
+          img.img-thumbnail(src="http://placehold.it/120x100")
+        p
+          img.img-responsive(src="http://placehold.it/1200x300")
+
+    #sg-labels.col-lg-12.sg-section
+      .sg-display
+        h2.sg-h2 labels
+        h1
+          | Example heading
+          = ' '
+          span.label.label-default New
+        h2
+          | Example heading
+          = ' '
+          span.label.label-default New
+        h3
+          | Example heading
+          = ' '
+          span.label.label-default New
+        h4
+          | Example heading
+          = ' '
+          span.label.label-default New
+        h5
+          | Example heading
+          = ' '
+          span.label.label-default New
+        h6
+          | Example heading
+          = ' '
+          span.label.label-default New
+        p
+          span.label.label-default Default
+          = ' '
+          span.label.label-primary Primary
+          = ' '
+          span.label.label-success Success
+          = ' '
+          span.label.label-info Info
+          = ' '
+          span.label.label-warning Warning
+          = ' '
+          span.label.label-danger Danger
+
+    #sg-lists.col-lg-12.sg-section
+      .sg-display
+        h2.sg-h2 lists
+        h3 Unordered
+        ul
+          li Lorem ipsum dolor sit amet
+          li Consectetur adipiscing elit
+          li Integer molestie lorem at massa
+          li Facilisis in pretium nisl aliquet
+          li
+            | Nulla volutpat aliquam velit
+            ul
+              li Phasellus iaculis neque
+              li Purus sodales ultricies
+              li Vestibulum laoreet porttitor sem
+              li Ac tristique libero volutpat at
+          li Faucibus porta lacus fringilla vel
+          li Aenean sit amet erat nunc
+          li Eget porttitor lorem
+        h3 Ordered
+        ol
+          li Lorem ipsum dolor sit amet
+          li Consectetur adipiscing elit
+          li Integer molestie lorem at massa
+          li Facilisis in pretium nisl aliquet
+          li Nulla volutpat aliquam velit
+          li Faucibus porta lacus fringilla vel
+          li Aenean sit amet erat nunc
+          li Eget porttitor lorem
+        h3 Unstyled
+        ul.list-unstyled
+          li Lorem ipsum dolor sit amet
+          li Consectetur adipiscing elit
+          li Integer molestie lorem at massa
+          li Facilisis in pretium nisl aliquet
+          li
+            | Nulla volutpat aliquam velit
+            ul
+              li Phasellus iaculis neque
+              li Purus sodales ultricies
+              li Vestibulum laoreet porttitor sem
+              li Ac tristique libero volutpat at
+          li Faucibus porta lacus fringilla vel
+          li Aenean sit amet erat nunc
+          li Eget porttitor lorem
+        h3 Inline
+        ul.list-inline
+          li Lorem ipsum
+          li Phasellus iaculis
+          li Nulla volutpat
+
+    #sg-progress-bars.col-lg-12.sg-section
+      .sg-display
+        h2.sg-h2 progress bars
+        h3 Basic
+        .progress
+          .progress-bar(role="progressbar", aria-valuenow="60", aria-valuemin="0", aria-valuemax="100", style="width: 60%;")
+            span.sr-only 60% Complete
+        .progress
+          .progress-bar(role="progressbar", aria-valuenow="60", aria-valuemin="0", aria-valuemax="100", style="width: 60%;")
+            | 60%
+        h3 Contextual Alternatives
+        .progress
+          .progress-bar.progress-bar-success(role="progressbar", aria-valuenow="40", aria-valuemin="0", aria-valuemax="100", style="width: 40%")
+            span.sr-only 40% Complete (success)
+        .progress
+          .progress-bar.progress-bar-info(role="progressbar", aria-valuenow="20", aria-valuemin="0", aria-valuemax="100", style="width: 20%")
+            span.sr-only 20% Complete
+        .progress
+          .progress-bar.progress-bar-warning(role="progressbar", aria-valuenow="60", aria-valuemin="0", aria-valuemax="100", style="width: 60%")
+            span.sr-only 60% Complete (warning)
+        .progress
+          .progress-bar.progress-bar-danger(role="progressbar", aria-valuenow="80", aria-valuemin="0", aria-valuemax="100", style="width: 80%")
+            span.sr-only 80% Complete
+        h3 Striped
+        .progress.progress-striped
+          .progress-bar.progress-bar-success(role="progressbar", aria-valuenow="40", aria-valuemin="0", aria-valuemax="100", style="width: 40%")
+            span.sr-only 40% Complete (success)
+        .progress.progress-striped
+          .progress-bar.progress-bar-info(role="progressbar", aria-valuenow="20", aria-valuemin="0", aria-valuemax="100", style="width: 20%")
+            span.sr-only 20% Complete
+        .progress.progress-striped
+          .progress-bar.progress-bar-warning(role="progressbar", aria-valuenow="60", aria-valuemin="0", aria-valuemax="100", style="width: 60%")
+            span.sr-only 60% Complete (warning)
+        .progress.progress-striped
+          .progress-bar.progress-bar-danger(role="progressbar", aria-valuenow="80", aria-valuemin="0", aria-valuemax="100", style="width: 80%")
+            span.sr-only 80% Complete (danger)
+        h3 Animated
+        .progress.progress-striped.active
+          .progress-bar(role="progressbar", aria-valuenow="45", aria-valuemin="0", aria-valuemax="100", style="width: 45%")
+            span.sr-only 45% Complete
+        h3 Stacked
+        .progress
+          .progress-bar.progress-bar-success(style="width: 35%")
+            span.sr-only 35% Complete (success)
+          .progress-bar.progress-bar-warning(style="width: 20%")
+            span.sr-only 20% Complete (warning)
+          .progress-bar.progress-bar-danger(style="width: 10%")
+            span.sr-only 10% Complete (danger)
+
+    #sg-tables.col-lg-12.sg-section
+      .sg-display
+        h2.sg-h2 tables
+        table.table.table-hover
+          thead
+            tr
+              th #
+              th First Name
+              th Tables
+          tbody
+            tr
+              td 1
+              td Michael
+              td Are formatted like this
+            tr
+              td 2
+              td Lucille
+              td Do you like them?
+            tr.success
+              td 3
+              td Success
+              td
+            tr.danger
+              td 4
+              td Danger
+              td
+            tr.warning
+              td 5
+              td Warning
+              td
+            tr.active
+              td 6
+              td Active
+              td
+        h3 Striped &#38; condensed table with alternating backgrounds
+        table.table.table-striped.table-bordered.table-condensed
+          thead
+            tr
+              th #
+              th First Name
+              th Tables
+          tbody
+            tr
+              td 1
+              td Michael
+              td This one is bordered and condensed
+            tr
+              td 2
+              td Lucille
+              td Do you still like it?
+
+    #sg-text-elements.col-lg-12.sg-section
+      .sg-display
+        h2.sg-h2 text elements
+        h2 Example body text
+        p.lead
+          | Lead paragraph: vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+        p
+          | Nullam quis risus eget
+          a(href="#") urna mollis ornare
+          | vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.
+        p
+          small This line of text is meant to be treated as fine print.
+        p
+          | The following snippet of text is
+          strong rendered as bold text
+          | .
+        p
+          | The following snippet of text is
+          em rendered as italicized text
+          | .
+        p
+          | An abbreviation of the word attribute is
+          abbr(title="attribute") attr
+          | .
+        p.text-left Left aligned text.
+        p.text-center Center aligned text.
+        p.text-right Right aligned text.
+        p.text-justify Justified text.
+        p.text-muted Muted: Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.
+        p.text-primary Primary: Nullam id dolor id nibh ultricies vehicula ut id elit.
+        p.text-warning Warning: Etiam porta sem malesuada magna mollis euismod.
+        p.text-danger Danger: Donec ullamcorper nulla non metus auctor fringilla.
+        p.text-success Success: Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+        p.text-info Info: Maecenas sed diam eget risus varius blandit sit amet non magna.
+
+    #sg-well.col-lg-12.sg-section
+      .sg-display
+        h2.sg-h2 well
+        .well
+          | Look, I"m in a well!
+        .well.well-small
+          | Small Well
+        .well.well-large
+          | Large Padding Well
+
+      .sg-pattern-styles
+        h1.page-header
+          | Patterns
+          small  - Design and mark-up patterns unique to your site.
+        #sg-alerts.col-lg-12.sg-section
+          .sg-display
+            h2.sg-h2 alerts
+            // Sample pattern, your site's patterns will be different
+            .alert.alert-warning
+              strong Warning Message!
+              = ' '
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            .alert.alert-danger
+              strong Error Message!
+              = ' '
+              | Numquam quos fuga quam suscipit sapiente perferendis magnam.
+            .alert.alert-success
+              strong Success Message!
+              = ' '
+              | Totam officiis dolorum voluptatibus maxime molestiae iste.
+            .alert.alert-info
+              strong Info Message!
+              = ' '
+              | Consequatur facere deleniti cumque ducimus maiores nemo.
+
+        #sg-breadcrumbs.col-lg-12.sg-section
+          .sg-display
+            h2.sg-h2 breadcrumbs
+            ol.breadcrumb
+              li
+                a(href="#") Home
+              li
+                a(href="#") Library
+              li.active Data
+
+        #sg-buttons-advanced.col-lg-12.sg-section
+          .sg-display
+            h2.sg-h2 buttons advanced
+            h3 Button Groups
+            // sizes
+            .col-md-12
+              .btn-toolbar(role="toolbar")
+                .btn-group.btn-group-lg
+                  button.btn.btn-default(type="button") Left
+                  button.btn.btn-default(type="button") Middle
+                  button.btn.btn-default(type="button") Right
+            .col-md-12
+              .btn-toolbar(role="toolbar")
+                .btn-group
+                  button.btn.btn-default(type="button") Left
+                  button.btn.btn-default(type="button") Middle
+                  button.btn.btn-default(type="button") Right
+            .col-md-12
+              .btn-toolbar(role="toolbar")
+                .btn-group.btn-group-sm
+                  button.btn.btn-default(type="button") Left
+                  button.btn.btn-default(type="button") Middle
+                  button.btn.btn-default(type="button") Right
+            .col-md-12
+              .btn-toolbar(role="toolbar")
+                .btn-group.btn-group-xs
+                  button.btn.btn-default(type="button") Left
+                  button.btn.btn-default(type="button") Middle
+                  button.btn.btn-default(type="button") Right
+            // with dropdown
+            h3 With Dropdown
+            .col-md-12
+              .btn-group
+                button.btn.btn-default(type="button") 1
+                button.btn.btn-default(type="button") 2
+                .btn-group
+                  button.btn.btn-default.dropdown-toggle(type="button", data-toggle="dropdown")
+                    | Dropdown
+                    = ' '
+                    span.caret
+                  ul.dropdown-menu
+                    li
+                      a(href="#") Dropdown link
+                    li
+                      a(href="#") Dropdown link
+            // vertical
+            h3 Vertical
+            .col-md-12
+              .btn-group-vertical
+                button.btn.btn-default(type="button") Button
+                button.btn.btn-default(type="button") Button
+                .btn-group
+                  button#btnGroupVerticalDrop1.btn.btn-default.dropdown-toggle(type="button", data-toggle="dropdown")
+                    | Dropdown
+                    = ' '
+                    span.caret
+                  ul.dropdown-menu(role="menu", aria-labelledby="btnGroupVerticalDrop1")
+                    li
+                      a(href="#") Dropdown link
+                    li
+                      a(href="#") Dropdown link
+                button.btn.btn-default(type="button") Button
+            .col-md-12
+              // justified
+              h3 Justified
+              .btn-group.btn-group-justified
+                .btn-group
+                  button.btn.btn-default(type="button") Left
+                .btn-group
+                  button.btn.btn-default(type="button") Middle
+                .btn-group
+                  button.btn.btn-default(type="button") Right
+              h3 Dropdowns
+              .col-md-12
+                .btn-group
+                  button.btn.btn-default.dropdown-toggle(type="button", data-toggle="dropdown")
+                    | Default
+                    = ' '
+                    span.caret
+                  ul.dropdown-menu(role="menu")
+                    li
+                      a(href="#") Action
+                    li
+                      a(href="#") Another action
+                    li
+                      a(href="#") Something else here
+                    li.divider
+                    li
+                      a(href="#") Separated link
+                // /btn-group
+                = ' '
+                .btn-group
+                  button.btn.btn-primary.dropdown-toggle(type="button", data-toggle="dropdown")
+                    | Primary
+                    = ' '
+                    span.caret
+                  ul.dropdown-menu(role="menu")
+                    li
+                      a(href="#") Action
+                    li
+                      a(href="#") Another action
+                    li
+                      a(href="#") Something else here
+                    li.divider
+                    li
+                      a(href="#") Separated link
+                // /btn-group
+                = ' '
+                .btn-group
+                  button.btn.btn-success.dropdown-toggle(type="button", data-toggle="dropdown")
+                    | Success
+                    = ' '
+                    span.caret
+                  ul.dropdown-menu(role="menu")
+                    li
+                      a(href="#") Action
+                    li
+                      a(href="#") Another action
+                    li
+                      a(href="#") Something else here
+                    li.divider
+                    li
+                      a(href="#") Separated link
+                = ' '
+                .btn-group
+                  button.btn.btn-info.dropdown-toggle(type="button", data-toggle="dropdown")
+                    | Info
+                    = ' '
+                    span.caret
+                  ul.dropdown-menu(role="menu")
+                    li
+                      a(href="#") Action
+                    li
+                      a(href="#") Another action
+                    li
+                      a(href="#") Something else here
+                    li.divider
+                    li
+                      a(href="#") Separated link
+                = ' '
+                .btn-group
+                  button.btn.btn-warning.dropdown-toggle(type="button", data-toggle="dropdown")
+                    | Warning
+                    = ' '
+                    span.caret
+                  ul.dropdown-menu(role="menu")
+                    li
+                      a(href="#") Action
+                    li
+                      a(href="#") Another action
+                    li
+                      a(href="#") Something else here
+                    li.divider
+                    li
+                      a(href="#") Separated link
+                = ' '
+                .btn-group
+                  button.btn.btn-danger.dropdown-toggle(type="button", data-toggle="dropdown")
+                    | Danger
+                    = ' '
+                    span.caret
+                  ul.dropdown-menu(role="menu")
+                    li
+                      a(href="#") Action
+                    li
+                      a(href="#") Another action
+                    li
+                      a(href="#") Something else here
+                    li.divider
+                    li
+                      a(href="#") Separated link
+                // /btn-group
+              .col-md-12
+                // split
+                .btn-group
+                  button.btn.btn-default(type="button") Default
+                  button.btn.btn-default.dropdown-toggle(type="button", data-toggle="dropdown")
+                    span.caret
+                    span.sr-only Toggle Dropdown
+                  ul.dropdown-menu(role="menu")
+                    li
+                      a(href="#") Action
+                    li
+                      a(href="#") Another action
+                    li
+                      a(href="#") Something else here
+                    li.divider
+                    li
+                      a(href="#") Separated link
+                // /btn-group
+                = ' '
+                .btn-group
+                  button.btn.btn-primary(type="button") Primary
+                  button.btn.btn-primary.dropdown-toggle(type="button", data-toggle="dropdown")
+                    span.caret
+                    span.sr-only Toggle Dropdown
+                  ul.dropdown-menu(role="menu")
+                    li
+                      a(href="#") Action
+                    li
+                      a(href="#") Another action
+                    li
+                      a(href="#") Something else here
+                    li.divider
+                    li
+                      a(href="#") Separated link
+                // /btn-group
+                = ' '
+                .btn-group
+                  button.btn.btn-success(type="button") Success
+                  button.btn.btn-success.dropdown-toggle(type="button", data-toggle="dropdown")
+                    span.caret
+                    span.sr-only Toggle Dropdown
+                  ul.dropdown-menu(role="menu")
+                    li
+                      a(href="#") Action
+                    li
+                      a(href="#") Another action
+                    li
+                      a(href="#") Something else here
+                    li.divider
+                    li
+                      a(href="#") Separated link
+                // /btn-group
+                = ' '
+                .btn-group
+                  button.btn.btn-info(type="button") Info
+                  button.btn.btn-info.dropdown-toggle(type="button", data-toggle="dropdown")
+                    span.caret
+                    span.sr-only Toggle Dropdown
+                  ul.dropdown-menu(role="menu")
+                    li
+                      a(href="#") Action
+                    li
+                      a(href="#") Another action
+                    li
+                      a(href="#") Something else here
+                    li.divider
+                    li
+                      a(href="#") Separated link
+                // /btn-group
+                = ' '
+                .btn-group
+                  button.btn.btn-warning(type="button") Warning
+                  button.btn.btn-warning.dropdown-toggle(type="button", data-toggle="dropdown")
+                    span.caret
+                    span.sr-only Toggle Dropdown
+                  ul.dropdown-menu(role="menu")
+                    li
+                      a(href="#") Action
+                    li
+                      a(href="#") Another action
+                    li
+                      a(href="#") Something else here
+                    li.divider
+                    li
+                      a(href="#") Separated link
+                = ' '
+                // /btn-group
+                .btn-group
+                  button.btn.btn-danger(type="button") Danger
+                  button.btn.btn-danger.dropdown-toggle(type="button", data-toggle="dropdown")
+                    span.caret
+                    = ' '
+                    span.sr-only Toggle Dropdown
+                  ul.dropdown-menu(role="menu")
+                    li
+                      a(href="#") Action
+                    li
+                      a(href="#") Another action
+                    li
+                      a(href="#") Something else here
+                    li.divider
+                    li
+                      a(href="#") Separated link
+                // /btn-group
+              .col-md-12
+                // Large button group
+                .btn-group
+                  button.btn.btn-default.btn-lg.dropdown-toggle(type="button", data-toggle="dropdown")
+                    | Large button
+                    = ' '
+                    span.caret
+                  ul.dropdown-menu
+                    | ...
+                // Small button group
+                = ' '
+                .btn-group
+                  button.btn.btn-default.btn-sm.dropdown-toggle(type="button", data-toggle="dropdown")
+                    | Small button
+                    = ' '
+                    span.caret
+                  ul.dropdown-menu
+                    | ...
+                // Extra small button group
+                = ' '
+                .btn-group
+                  button.btn.btn-default.btn-xs.dropdown-toggle(type="button", data-toggle="dropdown")
+                    | Extra small button
+                    = ' '
+                    span.caret
+                  ul.dropdown-menu
+                    | ...
+
+          #sg-dropdowns.col-lg-12.sg-section
+            .sg-display
+              h2.sg-h2 dropdowns
+              .dropdown
+                button#dropdownMenu1.btn.dropdown-toggle.sr-only(type="button", data-toggle="dropdown")
+                  | Dropdown
+                  = ' '
+                  span.caret
+                ul.dropdown-menu(role="menu", aria-labelledby="dropdownMenu2")
+                  li.dropdown-header(role="presentation") Dropdown header
+                  li(role="presentation")
+                    a(role="menuitem", tabindex="-1", href="#") Action
+                  li.disabled(role="presentation")
+                    a(role="menuitem", tabindex="-1", href="#") Disabled action
+                  li(role="presentation")
+                    a(role="menuitem", tabindex="-1", href="#") Something else here
+                  li.divider(role="presentation")
+                  li.dropdown-header(role="presentation") Dropdown header
+                  li(role="presentation")
+                    a(role="menuitem", tabindex="-1", href="#") Separated link
+              .dropdown
+                // Link or button to toggle dropdown
+                ul.dropdown-menu(role="menu", aria-labelledby="dropdownMenu", style="display: block; position: static;")
+                  li.dropdown-header Dropdown header
+                  li.disabled
+                    a(tabindex="-1", href="#") Action
+                  li
+                    a(tabindex="-1", href="#") Another action
+                  li
+                    a(tabindex="-1", href="#") Something else here
+                  li.divider
+                  li
+                    a(tabindex="-1", href="#") Separated link
+
+          #sg-forms.col-lg-12.sg-section
+            .sg-display
+              h2.sg-h2 forms
+              form
+                fieldset
+                  legend Legend
+                  .form-group
+                    label(for="exampleInputEmail") Email address
+                    input#exampleInputEmail.form-control(type="text", placeholder="Enter email")
+                  .form-group
+                    label(for="exampleInputPassword") Password
+                    input#exampleInputPassword.form-control(type="password", placeholder="Password")
+                  .form-group
+                    label(for="exampleInputFile") File input
+                    input#exampleInputFile.form-control(type="file")
+                    p.help-block Example block-level help text here.
+                  .checkbox
+                    label
+                      input(type="checkbox")
+                      | Check me out
+                  button.btn.btn-default(type="submit") Submit
+              hr
+              form.form-inline
+                input.form-control(type="text", placeholder="Email", style="width: 200px;")
+                input.form-control(type="password", placeholder="Password", style="width: 200px;")
+                .checkbox
+                  label
+                    input(type="checkbox")
+                    | Remember me
+                button.btn.btn-default(type="submit") Sign in
+              hr
+              form.form-horizontal
+                .form-group
+                  label.col-lg-2.control-label(for="inputEmail") Email
+                  .col-lg-10
+                    input#inputEmail.form-control(type="text", placeholder="Email")
+                .form-group.has-warning
+                  label.col-lg-2.control-label(for="inputEmail") Email
+                  .col-lg-10
+                    input#inputEmail.form-control(type="text", placeholder="Email")
+                .form-group.has-error
+                  label.col-lg-2.control-label(for="inputEmail") Email
+                  .col-lg-10
+                    input#inputEmail.form-control(type="text", placeholder="Email")
+                .form-group.has-success
+                  label.col-lg-2.control-label(for="inputEmail") Email
+                  .col-lg-10
+                    input#inputEmail.form-control(type="text", placeholder="Email")
+                .form-group
+                  label.col-lg-2.control-label(for="inputPassword") Password
+                  .col-lg-10
+                    input#inputPassword.form-control(type="password", placeholder="Password")
+                    .checkbox
+                      label
+                        input(type="checkbox")
+                        | Remember me
+                    button.btn.btn-default(type="submit") Sign in
+
+          #sg-hero.col-lg-12.sg-section
+            .sg-display
+              h2.sg-h2 hero
+              .jumbotron
+                h1 Hello, world!
+                p
+                  | This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+                p
+                  a.btn.btn-primary.btn-lg(role="button") Learn more
+
+          #sg-list-groups.col-lg-12.sg-section
+            .sg-display
+              h2.sg-h2 list groups
+              ul.list-group
+                li.list-group-item
+                  span.badge 14
+                  | Cras justo odio
+                li.list-group-item
+                  span.badge 2
+                  | Dapibus ac facilisis in
+                li.list-group-item
+                  span.badge 1
+                  | Morbi leo risus
+              h3 With links
+              .list-group
+                a.list-group-item.active(href="#")
+                  | Cras justo odio
+                a.list-group-item(href="#") Dapibus ac facilisis in
+                a.list-group-item(href="#") Morbi leo risus
+                a.list-group-item(href="#") Porta ac consectetur ac
+                a.list-group-item(href="#") Vestibulum at eros
+              h3 Contextual classes
+              ul.list-group
+                li.list-group-item.list-group-item-success Dapibus ac facilisis in
+                li.list-group-item.list-group-item-info Cras sit amet nibh libero
+                li.list-group-item.list-group-item-warning Porta ac consectetur ac
+                li.list-group-item.list-group-item-danger Vestibulum at eros
+
+          #sg-media-object.col-lg-12.sg-section
+            .sg-display
+              h2.sg-h2 media object
+              h3 Default
+              .media
+                a.pull-left(href="#")
+                  img.media-object(src="http://www.placehold.it/64x64", alt="media-object")
+                .media-body
+                  h4.media-heading Media heading
+                  | Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              .media
+                a.pull-left(href="#")
+                  img.media-object(src="http://www.placehold.it/64x64", alt="media-object")
+                .media-body
+                  h4.media-heading Media heading
+                  | Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                  .media
+                    a.pull-left(href="#")
+                      img.media-object(src="http://www.placehold.it/64x64", alt="media-object")
+                    .media-body
+                      h4.media-heading Nested media heading
+                      | Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              h3 Media List
+              ul.media-list
+                li.media
+                  a.pull-left(href="#")
+                    img.media-object(src="http://www.placehold.it/64x64", alt="media-object")
+                  .media-body
+                    h4.media-heading Media heading
+                    p
+                      | Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                    .media
+                      a.pull-left(href="#")
+                        img.media-object(src="http://www.placehold.it/64x64", alt="media-object")
+                      .media-body
+                        h4.media-heading Nested media heading
+                        | Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                        .media
+                          a.pull-left(href="#")
+                            img.media-object(src="http://www.placehold.it/64x64", alt="media-object")
+                          .media-body
+                            h4.media-heading Nested media heading
+                            | Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                    .media
+                      a.pull-left(href="#")
+                        img.media-object(src="http://www.placehold.it/64x64", alt="media-object")
+                      .media-body
+                        h4.media-heading Nested media heading
+                        | Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                li.media
+                  a.pull-right(href="#")
+                    img.media-object(src="http://www.placehold.it/64x64", alt="media-object")
+                  .media-body
+                    h4.media-heading Media heading
+                    | Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+
+          #sg-navbar.col-lg-12.sg-section
+            .sg-display
+              h2.sg-h2 navbar
+              nav.navbar.navbar-default(role="navigation")
+                .container-fluid
+                  // Brand and toggle get grouped for better mobile display
+                  .navbar-header
+                    button.navbar-toggle(type="button", data-toggle="collapse", data-target="#bs-example-navbar-collapse-1")
+                      span.sr-only Toggle navigation
+                      span.icon-bar
+                      span.icon-bar
+                      span.icon-bar
+                    a.navbar-brand(href="#") Brand
+                  // Collect the nav links, forms, and other content for toggling
+                  #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                    ul.nav.navbar-nav
+                      li
+                        a(href="#") Link
+                      li
+                        a(href="#") Link
+                      li.dropdown
+                        a.dropdown-toggle(href="#", data-toggle="dropdown")
+                          | Dropdown
+                          b.caret
+                        ul.dropdown-menu
+                          li
+                            a(href="#") Action
+                          li
+                            a(href="#") Another action
+                          li
+                            a(href="#") Something else here
+                          li.divider
+                          li
+                            a(href="#") Separated link
+                          li.divider
+                          li
+                            a(href="#") One more separated link
+                    form.navbar-form.navbar-left(role="search")
+                      .form-group
+                        input.form-control(type="text", placeholder="Search")
+                      button.btn.btn-default(type="submit") Submit
+                    ul.nav.navbar-nav.navbar-right
+                      li
+                        a(href="#") Link
+                      li.dropdown
+                        a.dropdown-toggle(href="#", data-toggle="dropdown")
+                          | Dropdown
+                          = ' '
+                          b.caret
+                        ul.dropdown-menu
+                          li
+                            a(href="#") Action
+                          li
+                            a(href="#") Another action
+                          li
+                            a(href="#") Something else here
+                          li.divider
+                          li
+                            a(href="#") Separated link
+
+          #sg-navs.col-lg-12.sg-section
+            .sg-display
+              h2.sg-h2 navs
+              h3 Tabs
+              ul.nav.nav-tabs
+                li.active
+                  a(href="#") Home
+                li
+                  a(href="#") Profile
+                li
+                  a(href="#") Messages
+                li.disabled
+                  a(href="#") Disabled
+              h4 Justified Tabs
+              ul.nav.nav-tabs.nav-justified
+                li.active
+                  a(href="#") Home
+                li
+                  a(href="#") Profile
+                li
+                  a(href="#") Messages
+              h3 Pills
+              ul.nav.nav-pills
+                li.active
+                  a(href="#") Home
+                li
+                  a(href="#") Profile
+                li
+                  a(href="#") Messages
+              h4 Stacked Pills
+              ul.nav.nav-pills.nav-stacked
+                li.active
+                  a(href="#") Home
+                li
+                  a(href="#") Profile
+                li
+                  a(href="#") Messages
+              h3 Tabs with dropdowns
+              ul.nav.nav-tabs
+                li.active
+                  a(href="#") Home
+                li
+                  a(href="#") Help
+                li.dropdown
+                  a.dropdown-toggle(data-toggle="dropdown", href="#")
+                    | Dropdown
+                    span.caret
+                  ul.dropdown-menu(role="menu")
+                    li
+                      a(href="#") Action
+                    li
+                      a(href="#") Another action
+                    li
+                      a(href="#") Something else here
+                    li.divider
+                    li
+                      a(href="#") Separated link
+
+          #sg-navs.col-lg-12.sg-section
+            .sg-display
+              h2.sg-h2 navs
+              h3 Tabs
+              ul.nav.nav-tabs
+                li.active
+                  a(href="#") Home
+                li
+                  a(href="#") Profile
+                li
+                  a(href="#") Messages
+                li.disabled
+                  a(href="#") Disabled
+              h4 Justified Tabs
+              ul.nav.nav-tabs.nav-justified
+                li.active
+                  a(href="#") Home
+                li
+                  a(href="#") Profile
+                li
+                  a(href="#") Messages
+              h3 Pills
+              ul.nav.nav-pills
+                li.active
+                  a(href="#") Home
+                li
+                  a(href="#") Profile
+                li
+                  a(href="#") Messages
+              h4 Stacked Pills
+              ul.nav.nav-pills.nav-stacked
+                li.active
+                  a(href="#") Home
+                li
+                  a(href="#") Profile
+                li
+                  a(href="#") Messages
+              h3 Tabs with dropdowns
+              ul.nav.nav-tabs
+                li.active
+                  a(href="#") Home
+                li
+                  a(href="#") Help
+                li.dropdown
+                  a.dropdown-toggle(data-toggle="dropdown", href="#")
+                    | Dropdown
+                    span.caret
+                  ul.dropdown-menu(role="menu")
+                    li
+                      a(href="#") Action
+                    li
+                      a(href="#") Another action
+                    li
+                      a(href="#") Something else here
+                    li.divider
+                    li
+                      a(href="#") Separated link
+
+          #sg-page-header.col-lg-12.sg-section
+            .sg-display
+              h2.sg-h2 page header
+              .page-header
+                h1
+                  | Example page header
+                  small Subtext for header
+
+          #sg-pager.col-lg-12.sg-section
+            .sg-display
+              h2.sg-h2 pager
+              ul.pager
+                li
+                  a(href="#") Previous
+                li
+                  a(href="#") Next
+              ul.pager
+                li.previous
+                  a(href="#") &#8592; Older
+                li.next
+                  a(href="#") Newer &#8594;
+
+          #sg-pagination.col-lg-12.sg-section
+            .sg-display
+              h2.sg-h2 pagination
+              ul.pagination.pagination-lg
+                li
+                  a(href="#") Prev
+                li.active
+                  a(href="#") 1
+                li
+                  a(href="#") 2
+                li
+                  a(href="#") 3
+                li
+                  a(href="#") 4
+                li
+                  a(href="#") Next
+              ul.pagination
+                li
+                  a(href="#") Prev
+                li.active
+                  a(href="#") 1
+                li
+                  a(href="#") 2
+                li
+                  a(href="#") 3
+                li
+                  a(href="#") 4
+                li
+                  a(href="#") Next
+              ul.pagination.pagination-sm
+                li
+                  a(href="#") Prev
+                li.active
+                  a(href="#") 1
+                li
+                  a(href="#") 2
+                li
+                  a(href="#") 3
+                li
+                  a(href="#") 4
+                li
+                  a(href="#") Next
+
+          #sg-panels.col-lg-12.sg-section
+            .sg-display
+              h2.sg-h2 panels
+              .panel.panel-default
+                .panel-heading
+                  h3.panel-title Panel title
+                .panel-body
+                  | Panel content
+                .panel-footer Panel footer
+              h3 Contextual classes
+              .panel.panel-primary
+                .panel-heading
+                  h3.panel-title Panel title
+                .panel-body
+                  | Panel content
+              .panel.panel-success
+                .panel-heading
+                  h3.panel-title Panel title
+                .panel-body
+                  | Panel content
+              .panel.panel-info
+                .panel-heading
+                  h3.panel-title Panel title
+                .panel-body
+                  | Panel content
+              .panel.panel-warning
+                .panel-heading
+                  h3.panel-title Panel title
+                .panel-body
+                  | Panel content
+              .panel.panel-danger
+                .panel-heading
+                  h3.panel-title Panel title
+                .panel-body
+                  | Panel content
+
+          #sg-thumbnails.col-lg-12.sg-section
+            .sg-display
+              h2.sg-h2 thumbnails
+              .row
+                .col-xs-6.col-md-3
+                  a.thumbnail(href="#")
+                    img(data-src="holder.js/100%x180", alt="100%x180", src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=", style="height: 180px; width: 100%; display: block;")
+                .col-xs-6.col-md-3
+                  a.thumbnail(href="#")
+                    img(data-src="holder.js/100%x180", alt="100%x180", src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=", style="height: 180px; width: 100%; display: block;")
+                .col-xs-6.col-md-3
+                  a.thumbnail(href="#")
+                    img(data-src="holder.js/100%x180", alt="100%x180", src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=", style="height: 180px; width: 100%; display: block;")
+                .col-xs-6.col-md-3
+                  a.thumbnail(href="#")
+                    img(data-src="holder.js/100%x180", alt="100%x180", src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=", style="height: 180px; width: 100%; display: block;")
+
