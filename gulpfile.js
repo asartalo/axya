@@ -8,6 +8,7 @@ var path = require('path'),
     coffee = require('gulp-coffee'),
     source = require('vinyl-source-stream'),
     livereload = require('gulp-livereload'),
+    notifier = new (require('node-notifier')),
     browserify = require('browserify');
 
 var srcDir = 'app',
@@ -44,6 +45,14 @@ gulp.task('less', ['less_copy'], function() {
         path.join(__dirname, 'node_modules', 'bootstrap', 'less')
       ]
     }))
+    .on('error', function (error) {
+      gutil.log(gutil.colors.red(error.message))
+      // Notify on error. Uses node-notifier
+      notifier.notify({
+        title: 'Less compilation error',
+        message: error.message
+      });
+    })
     .pipe(gulp.dest(outputDir + '/css'))
     .pipe(gulpif(dev, livereload()));
 });
@@ -76,7 +85,15 @@ gulp.task('coffee', function() {
     return bundler
       .bundle()
       // Report compile errors
-      .on('error', gutil.log)
+      .on('error', function (error) {
+        gutil.log(gutil.colors.red(error.message))
+        // Notify on error. Uses node-notifier
+        notifier.notify({
+          title: 'Coffeescript compilation error',
+          message: error.message
+        });
+        this.emit('end');
+      })
       // Use vinyl-source-stream to make the
       // stream gulp compatible. Specifiy the
       // desired output filename here.
