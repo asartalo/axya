@@ -12,10 +12,10 @@ app.config [
     $stateProvider
       .state 'index',
         url: '/'
-        templateUrl: 'partials/home.html'
+        templateUrl: 'components/home/home.html'
       .state 'login',
         url: '/login'
-        templateUrl: 'partials/login.html'
+        templateUrl: 'components/login/login.html'
 
 ]
 

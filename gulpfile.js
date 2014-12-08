@@ -6,9 +6,11 @@ var path = require('path'),
     less = require('gulp-less-sourcemap'),
     gulpif = require('gulp-if'),
     coffee = require('gulp-coffee'),
+    plumber = require('gulp-plumber'),
     source = require('vinyl-source-stream'),
     livereload = require('gulp-livereload'),
     notifier = new (require('node-notifier')),
+    karma = require('karma').server;
     browserify = require('browserify');
 
 var srcDir = 'app',
@@ -18,25 +20,27 @@ var srcDir = 'app',
     outputDir = dev ? 'builds/development' : 'builds/production';
 
 gulp.task('jade', function() {
-  return gulp.src(srcDir + '/templates/**/*.jade')
+  return gulp.src(srcDir + '/**/*.jade')
+    .pipe(plumber())
     .pipe(jade())
     .pipe(gulp.dest(outputDir))
     .pipe(livereload());
 });
 
 gulp.task('css', function() {
-  return gulp.src(srcDir + '/css/**/*.css')
-    .pipe(gulp.dest(outputDir + '/css'))
+  return gulp.src(srcDir + '/**/*.css')
+    .pipe(gulp.dest(outputDir))
     .pipe(gulpif(dev, livereload()));
 });
 
+// For sourcemaps
 gulp.task('less_copy', function() {
-  return gulp.src(srcDir + '/css/**/*.less')
-    .pipe(gulpif(dev, gulp.dest(outputDir + '/css')));
+  return gulp.src(srcDir + '/**/*.less')
+    .pipe(gulpif(dev, gulp.dest(outputDir)));
 });
 
 gulp.task('less', ['less_copy'], function() {
-  return gulp.src(srcDir + '/css/*.less')
+  return gulp.src(srcDir + '/**/*.less')
     .pipe(less({
       generateSourceMap: dev,
       // This makes it easy to use sourcemaps with devtools
@@ -53,7 +57,7 @@ gulp.task('less', ['less_copy'], function() {
         message: error.message
       });
     })
-    .pipe(gulp.dest(outputDir + '/css'))
+    .pipe(gulp.dest(outputDir))
     .pipe(gulpif(dev, livereload()));
 });
 
@@ -63,8 +67,8 @@ gulp.task('vendor_fonts', function() {
 });
 
 gulp.task('js', function() {
-  return gulp.src(srcDir + '/js/**/*.js')
-    .pipe(gulp.dest(outputDir + '/js'))
+  return gulp.src(srcDir + '/**/*.js')
+    .pipe(gulp.dest(outputDir + '/'))
     .pipe(gulpif(dev, livereload()));
 });
 
@@ -106,6 +110,13 @@ gulp.task('coffee', function() {
   return bundle();
 });
 
+gulp.task('test', function(done) {
+  karma.start({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done);
+});
+
 gulp.task('server', function() {
   return gulp.src('')
     .pipe(shell(['go run serve/serve.go']));
@@ -115,11 +126,11 @@ gulp.task('build', ['jade', 'coffee', 'js', 'less', 'css', 'vendor_fonts']);
 
 gulp.task('watch', ['build'], function() {
   livereload.listen();
-  gulp.watch('app/templates/**/*.jade', ['jade']);
-  gulp.watch('app/js/**/*.coffee', ['coffee']);
-  gulp.watch('app/js/**/*.js', ['js']);
-  gulp.watch('app/css/**/*.less', ['less']);
-  gulp.watch('app/css/**/*.css', ['css']);
+  gulp.watch('app/**/*.jade', ['jade']);
+  gulp.watch('app/**/*.coffee', ['coffee']);
+  gulp.watch('app/**/*.js', ['js']);
+  gulp.watch('app/**/*.less', ['less']);
+  gulp.watch('app/**/*.css', ['css']);
 });
 
 gulp.task('development', ['watch', 'server']);
