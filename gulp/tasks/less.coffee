@@ -5,7 +5,7 @@ livereload = require("gulp-livereload")
 path = require("path")
 plumber = require("gulp-plumber")
 
-conf = require('../config')
+conf = require('../../config')
 
 # For sourcemaps
 gulp.task "less_copy", ->

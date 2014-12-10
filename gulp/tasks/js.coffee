@@ -2,7 +2,7 @@ gulp = require("gulp")
 gulpif = require("gulp-if")
 livereload = require("gulp-livereload")
 
-conf = require('../config')
+conf = require('../../config')
 
 gulp.task "js", ->
   gulp.src(conf.srcDir + "/**/*.js")

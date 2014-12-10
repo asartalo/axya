@@ -1,6 +1,6 @@
 gulp = require("gulp")
 
-conf = require('../config')
+conf = require('../../config')
 
 gulp.task "vendor_fonts", ->
   gulp.src("node_modules/bootstrap/fonts/**/*.*")

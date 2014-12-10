@@ -3,7 +3,7 @@ plumber = require("gulp-plumber")
 jade = require("gulp-jade")
 livereload = require("gulp-livereload")
 
-conf = require('../config')
+conf = require('../../config')
 
 gulp.task "jade", ->
   gulp.src(conf.srcDir + "/**/*.jade")

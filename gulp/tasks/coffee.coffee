@@ -4,7 +4,7 @@ gulp = require("gulp")
 livereload = require("gulp-livereload")
 source = require("vinyl-source-stream")
 
-conf = require('../config')
+conf = require('../../config')
 
 gulp.task "coffee", ->
   config =

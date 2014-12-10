@@ -7,5 +7,6 @@ module.exports =
   env: env
   dev: (env is "development")
   prod: (env is "production")
+  rootDir: __dirname
   srcDir: path.join(__dirname, "app")
   outputDir: ou
