@@ -1,6 +1,7 @@
 browserify = require("browserify")
 coffee = require("gulp-coffee")
 gulp = require("gulp")
+gutil = require("gulp-util")
 livereload = require("gulp-livereload")
 source = require("vinyl-source-stream")
 
@@ -11,7 +12,7 @@ gulp.task "coffee", ->
     cache: {}
     packageCache: {}
     fullPaths: true
-    entries: ["./app/js/app.coffee"]
+    entries: [conf.srcDir + "/js/app.coffee"]
     extensions: [".coffee"]
 
   conf.debug = true  if conf.dev

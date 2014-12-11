@@ -1,7 +1,15 @@
 {
+  "browser": {
+    "angular": "./node_modules/angular/angular.js"
+  },
+  "browserify-shim": {
+    "angular": {
+      "exports": "angular"
+    }
+  },
   "browserify": {
     "transform": [
-      "coffeeify"
+      "coffeeify", "browserify-shim"
     ]
   },
   "devDependencies": {
@@ -34,6 +42,8 @@
     "gulp-plumber": "^0.6.6",
     "require-dir": "^0.1.0",
     "gulp-protractor": "0.0.11",
-    "protractor": "^1.5.0"
+    "protractor": "^1.5.0",
+    "browserify": "^7.0.0",
+    "browserify-shim": "^3.8.1"
   }
 }
