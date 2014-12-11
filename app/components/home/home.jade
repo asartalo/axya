@@ -4,13 +4,13 @@
 
     form.form-horizontal(name="loginForm" ng-submit="login(user)")
       .form-group
-        label.col-lg-2.control-label(for="inputEmail") Email
+        label.col-lg-2.control-label(for="inputUsername") Username
         .col-lg-10
-          input#inputEmail.form-control(type="text", placeholder="Email")
+          input#inputUsername.form-control(type="text")
       .form-group
         label.col-lg-2.control-label(for="inputPassword") Password
         .col-lg-10
-          input#inputPassword.form-control(type="password", placeholder="Password")
+          input#inputPassword.form-control(type="password")
           .checkbox
             label
               input(type="checkbox")
