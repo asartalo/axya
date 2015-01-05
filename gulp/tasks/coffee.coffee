@@ -3,6 +3,7 @@ coffee = require("gulp-coffee")
 gulp = require("gulp")
 gutil = require("gulp-util")
 livereload = require("gulp-livereload")
+notifier = require('node-notifier')
 source = require("vinyl-source-stream")
 
 conf = require('../../config')

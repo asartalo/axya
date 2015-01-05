@@ -8,4 +8,5 @@ describe "E2E: Testing Requests", ->
   describe 'when the user logs in', ->
     $('#inputUsername').sendKeys("John")
     $('#inputPassword').sendKeys("Secret")
+    $('#login-submit-btn').click()
 
