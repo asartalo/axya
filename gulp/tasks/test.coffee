@@ -13,8 +13,14 @@ webserver = null
 gulp.task "test:server", (done) ->
   webserver = server(
     port: 9877,
+    logLabel: 'test server',
     ready: ->
-      done()
+      setTimeout(
+        ->
+          console.log 'Test Server Ready'
+          done()
+        2000
+      )
   )
   return
 
@@ -48,7 +54,7 @@ gulp.task "test:e2e", ['test:server'], (done) ->
     if code != 0
       gutil.log gutil.colors.red("protractor exited with code #{code}")
     if webserver
-      webserver.kill('SIGINT')
+      webserver.stop()
     done()
 
   prot.stdout.pipe(split()).on 'data', (line) ->
@@ -67,6 +73,7 @@ gulp.task "test:e2e", ['test:server'], (done) ->
     notifier.notify
       title: "E2E Test Failure/Error"
       message: err
+    webserver.stop()
 
   return
 

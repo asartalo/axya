@@ -3,6 +3,8 @@
 angular = require('angular')
 require('angular-ui-router')
 app = angular.module('axyaApp', ['ui.router'])
+require('../components/login/controller')
+# require('require-dir')('../components/login', recurse: true)
 
 app.config [
   '$stateProvider', '$urlRouterProvider',
@@ -16,6 +18,9 @@ app.config [
       .state 'login',
         url: '/login'
         templateUrl: 'components/login/login.html'
+      .state 'dashboard',
+        url: '/dashboard'
+        templateUrl: 'components/dashboard/view.html'
 
 ]
 

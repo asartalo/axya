@@ -19,12 +19,12 @@ module.exports = (->
       i++
     obj
 
-  log = ->
-    args = Array.prototype.slice.call(arguments)
-    args.unshift "[#{gutil.colors.green('go server')}]"
-    console.log.apply console, args
-
   server = (options) ->
+
+    log = ->
+      args = Array.prototype.slice.call(arguments)
+      args.unshift "[#{gutil.colors.green(options.logLabel || 'go server')}]"
+      console.log.apply console, args
 
     options = extend(
       bin: "bin/serve"
@@ -51,6 +51,17 @@ module.exports = (->
 
     cp.on 'close', (code, signal) ->
       log "Server Stopped."
+
+    cp.stop = ->
+      cp.kill('SIGINT')
+
+    process.on 'SIGINT', ->
+      cp.stop()
+      setTimeout(
+        ->
+          process.exit()
+        1000
+      )
 
     cp
 
