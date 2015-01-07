@@ -5,6 +5,7 @@ import (
 	"github.com/asartalo/axya"
 	"github.com/codegangsta/cli"
 	"github.com/gorilla/mux"
+	"log"
 	"net/http"
 	"os"
 	"os/signal"
@@ -13,6 +14,7 @@ import (
 
 func startServer(port int) {
 	r := mux.NewRouter()
+	// TODO: Move hardcoded root directory to a mor configurable parameter
 	injector := axya.Injector(http.FileServer(http.Dir("./builds/development")))
 
 	injector.Inject("text/html", axya.InjectLiveReload)
@@ -22,12 +24,12 @@ func startServer(port int) {
 	fmt.Println(fmt.Sprintf("Starting Server. Listening at port %d", port))
 	go func() {
 		c := make(chan os.Signal, 10)
-		signal.Notify(c, os.Interrupt, syscall.SIGTERM)
+		signal.Notify(c, os.Interrupt, syscall.SIGTERM, syscall.SIGKILL)
 		<-c
 		fmt.Println("\nStopping Server...")
 		os.Exit(0)
 	}()
-	http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), nil))
 }
 
 func main() {

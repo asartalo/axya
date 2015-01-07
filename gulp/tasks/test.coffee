@@ -2,16 +2,21 @@ gulp = require("gulp")
 gutil = require("gulp-util")
 karma = require("karma").server
 notifier = require('node-notifier')
-plumber = require("gulp-plumber")
-shell = require("gulp-shell")
 split = require("split")
 spawn = require("child_process").spawn
+server = require("../server").server
 
 conf = require('../../config')
 
+webserver = null
+
 gulp.task "test:server", (done) ->
-  gulp.src("").pipe shell(["go run serve/serve.go --port 9877"])
-  done()
+  webserver = server(
+    port: 9877,
+    ready: ->
+      done()
+  )
+  return
 
 gulp.task "test:unit", (done) ->
   karma.start
@@ -42,6 +47,8 @@ gulp.task "test:e2e", ['test:server'], (done) ->
   prot.on 'close', (code) ->
     if code != 0
       gutil.log gutil.colors.red("protractor exited with code #{code}")
+    if webserver
+      webserver.kill('SIGINT')
     done()
 
   prot.stdout.pipe(split()).on 'data', (line) ->
@@ -60,5 +67,7 @@ gulp.task "test:e2e", ['test:server'], (done) ->
     notifier.notify
       title: "E2E Test Failure/Error"
       message: err
+
+  return
 
 gulp.task "tdd", ["test:e2e"]

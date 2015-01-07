@@ -1,6 +1,7 @@
 gulp = require("gulp")
 
 gulp.task "build", [
+  "compile"
   "jade"
   "coffee"
   "js"

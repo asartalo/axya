@@ -1,6 +1,10 @@
 gulp = require("gulp")
-shell = require("gulp-shell")
+server = require("../server").server
 
-gulp.task "server", ->
-  gulp.src("").pipe shell(["go run serve/serve.go"])
+gulp.task "server", (done) ->
+  server(
+    port: 9876,
+    ready: ->
+      done()
+  )
 
