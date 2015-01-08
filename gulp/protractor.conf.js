@@ -5,5 +5,6 @@ exports.config = {
   framework: 'jasmine',
   seleniumArgs: ['throwOnCapabilityNotPresent=no'],
   // resultJsonOutputFile: conf.rootDir + "/protractorResults.json",
-  specs: [conf.srcDir + "/specs/e2e/**/*_spec*.coffee"]
+  specs: [conf.srcDir + "/specs/e2e/**/*_spec*.coffee"],
+  baseUrl: 'http://localhost:9877'
 }
