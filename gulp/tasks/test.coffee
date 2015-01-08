@@ -78,3 +78,4 @@ gulp.task "test:e2e", ['test:server'], (done) ->
   return
 
 gulp.task "tdd", ["test:e2e"]
+gulp.task "test", ["test:e2e", "test:unit"]
