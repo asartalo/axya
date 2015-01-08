@@ -1,5 +1,5 @@
 require('coffee-script/register');
 
 // Require all tasks in gulp/tasks, including subfolders
-require('require-dir')('./gulp/tasks', { recurse: true });
+require('node-require-directory')('./gulp/tasks');
 

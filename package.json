@@ -43,8 +43,9 @@
     "karma-ng-jade2js-preprocessor": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
     "node-notifier": "^4.0.3",
+    "node-require-directory": "^1.0.2",
     "protractor": "^1.5.0",
-    "require-dir": "^0.1.0",
+    "run-sequence": "^1.0.2",
     "split": "^0.3.2",
     "vinyl-source-stream": "^0.1.1"
   }
