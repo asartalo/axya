@@ -4,12 +4,10 @@ import (
 	"fmt"
 	"github.com/asartalo/axya"
 	"github.com/codegangsta/cli"
+	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
-	"log"
 	"net/http"
 	"os"
-	"os/signal"
-	"syscall"
 )
 
 func startServer(port int) {
@@ -19,17 +17,12 @@ func startServer(port int) {
 
 	injector.Inject("text/html", axya.InjectLiveReload)
 	r.PathPrefix("/").Handler(injector)
-	http.Handle("/", r)
+
+	n := negroni.New()
+	n.UseHandler(r)
 
 	fmt.Println(fmt.Sprintf("Starting Server. Listening at port %d", port))
-	go func() {
-		c := make(chan os.Signal, 10)
-		signal.Notify(c, os.Interrupt, syscall.SIGTERM, syscall.SIGKILL)
-		<-c
-		fmt.Println("\nStopping Server...")
-		os.Exit(0)
-	}()
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), nil))
+	n.Run(fmt.Sprintf(":%d", port))
 }
 
 func main() {
