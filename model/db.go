@@ -6,10 +6,6 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-type appDb struct {
-	db *sqlx.DB
-}
-
 type AppDb interface {
 	DbStore() *sqlx.DB
 	Close() error
@@ -17,12 +13,16 @@ type AppDb interface {
 	Authenticate(string, string)
 }
 
-func (db *appDb) Close() error {
-	return db.db.Close()
+type appDb struct {
+	db *sqlx.DB
 }
 
 func (db *appDb) DbStore() *sqlx.DB {
 	return db.db
+}
+
+func (db *appDb) Close() error {
+	return db.db.Close()
 }
 
 func (db *appDb) NewUser(name string, password string) {
@@ -35,12 +35,11 @@ func (db *appDb) NewUser(name string, password string) {
 }
 
 func (db *appDb) Authenticate(name string, password string) (User, error) {
-	user := User{}
-	err := db.db.Get(&user, "SELECT * FROM user WHERE name=?", name)
+	user, err := db.findUser(name)
 	if err != nil {
-		err = UserAuthenticationError{"user not found"}
-		return user, err
+		return user, UserAuthenticationError{"user not found"}
 	}
+
 	if bcrypt.CompareHashAndPassword([]byte(user.PasswordHash), []byte(password)) != nil {
 		err = UserAuthenticationError{"wrong password"}
 		user = User{}
@@ -48,19 +47,15 @@ func (db *appDb) Authenticate(name string, password string) (User, error) {
 	return user, err
 }
 
+func (db *appDb) findUser(name string) (User, error) {
+	user := User{}
+	err := db.db.Get(&user, "SELECT * FROM user WHERE name=?", name)
+	return user, err
+}
+
 type User struct {
 	Name         string
 	PasswordHash string `db:"password_hash"`
-}
-
-func (db *appDb) createUserTable() (err error) {
-	_, err = db.db.Exec(
-		`CREATE TABLE user (` +
-			`name            string NOT NULL, ` +
-			`password_hash   string NOT NULL); ` +
-			`CREATE INDEX user_idx ON user (name);`,
-	)
-	return err
 }
 
 type UserAuthenticationError struct {
@@ -83,4 +78,14 @@ func CreateDb(conn string) (*appDb, error) {
 	err = a.createUserTable()
 
 	return a, err
+}
+
+func (db *appDb) createUserTable() (err error) {
+	_, err = db.db.Exec(
+		`CREATE TABLE user (` +
+			`name            string NOT NULL, ` +
+			`password_hash   string NOT NULL); ` +
+			`CREATE INDEX user_idx ON user (name);`,
+	)
+	return err
 }
