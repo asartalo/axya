@@ -9,5 +9,6 @@ gulp.task "watch", ["build"], ->
   gulp.watch "app/**/*.less", ["less"]
   gulp.watch "app/**/*.css", ["css"]
   gulp.watch "app/**/*.*", ["tdd"]
+  gulp.watch "model/**/*.*", ["tdd"]
   return
 
