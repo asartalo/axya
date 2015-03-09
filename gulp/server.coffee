@@ -2,22 +2,13 @@
 
 # Module for starting/stopping go server
 
+_ = require('lodash')
 conf = require('../config')
 spawn = require("child_process").spawn
 gutil = require("gulp-util")
 split = require("split")
 
 module.exports = (->
-  extend = (obj) ->
-    i = 1
-
-    while i < arguments.length
-      for key of arguments[i]
-        if Object::hasOwnProperty.call(arguments[i], key)
-          obj[key] = arguments[i][key]
-          obj[key] = ((if typeof arguments[i][key] is "object" and arguments[i][key] then extend(obj[key], arguments[i][key]) else arguments[i][key]))
-      i++
-    obj
 
   server = (options) ->
 
@@ -26,7 +17,7 @@ module.exports = (->
       args.unshift "[#{gutil.colors.green(options.logLabel || 'go server')}]"
       console.log.apply console, args
 
-    options = extend(
+    options = _.extend(
       bin: "bin/serve"
       port: 9876
       ready: ->
@@ -36,6 +27,7 @@ module.exports = (->
       "--port"
       options.port
     ]
+    options.env = _.extend process.env, options.env
 
     cp = spawn(options.bin, args, detached: true)
 

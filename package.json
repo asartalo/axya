@@ -42,6 +42,7 @@
     "karma-jasmine": "^0.3.2",
     "karma-ng-jade2js-preprocessor": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
+    "lodash": "^3.5.0",
     "node-notifier": "^4.0.3",
     "node-require-directory": "^1.0.2",
     "protractor": "^1.5.0",
