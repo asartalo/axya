@@ -29,7 +29,7 @@ coffeeTask = (conf) ->
       @emit "end"
       return
     ).pipe(source("app.js"))
-      .pipe(gulp.dest(conf.outputDir + "/js"))
+      .pipe(gulp.dest(conf.publicDir + "/js"))
       .pipe(gulpif(conf.dev, livereload()))
 
   bundle()

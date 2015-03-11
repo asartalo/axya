@@ -16,5 +16,8 @@ module.exports = (environment) ->
     srcDir: path.normalize(__dirname +  "/../../app")
     port: process.env.AXYA_PORT or 9876
 
-  _.merge(all, require('./' + environment) or {})
+  merged = _.merge(all, require('./' + environment) or {})
+  merged.publicDir = merged.outputDir + '/public'
+
+  merged
 

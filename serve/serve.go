@@ -10,10 +10,9 @@ import (
 	"os"
 )
 
-func startServer(port int) {
+func startServer(port int, dir string) {
 	r := mux.NewRouter()
-	// TODO: Move hardcoded root directory to a mor configurable parameter
-	injector := axya.Injector(http.FileServer(http.Dir("./builds/development")))
+	injector := axya.Injector(http.FileServer(http.Dir(dir)))
 
 	injector.Inject("text/html", axya.InjectLiveReload)
 	r.PathPrefix("/").Handler(injector)
@@ -22,6 +21,7 @@ func startServer(port int) {
 	n.UseHandler(r)
 
 	fmt.Println(fmt.Sprintf("Starting Server. Listening at port %d", port))
+	fmt.Println(fmt.Sprintf("Public directory at %s", dir))
 	n.Run(fmt.Sprintf(":%d", port))
 }
 
@@ -30,7 +30,7 @@ func main() {
 	app.Name = "server"
 	app.Usage = "Starts the Axya server"
 	app.Action = func(c *cli.Context) {
-		startServer(c.Int(`port`))
+		startServer(c.Int(`port`), c.String(`dir`))
 	}
 
 	app.Flags = []cli.Flag{
@@ -38,6 +38,11 @@ func main() {
 			Name:  "port, p",
 			Value: 9876,
 			Usage: "port where the server will listen to",
+		},
+		cli.StringFlag{
+			Name:  "dir, d",
+			Value: "./public",
+			Usage: "directory of public files",
 		},
 	}
 

@@ -20,7 +20,7 @@ lessTask = (conf) ->
     .pipe(plumber())
     .pipe(
       (->
-        gulp.dest(conf.outputDir + "/")
+        gulp.dest(conf.publicDir + "/")
       )()
     )
     .pipe gulpif(conf.dev, livereload())

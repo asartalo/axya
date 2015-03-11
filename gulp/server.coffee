@@ -7,6 +7,7 @@ conf = require('../config')
 spawn = require("child_process").spawn
 gutil = require("gulp-util")
 split = require("split")
+conf = require('../config')()
 
 module.exports = (->
 
@@ -18,7 +19,7 @@ module.exports = (->
       console.log.apply console, args
 
     options = _.extend(
-      bin: "bin/serve"
+      bin: "#{conf.outputDir}/serve"
       port: 9876
       ready: ->
         #
@@ -26,6 +27,8 @@ module.exports = (->
     args = [
       "--port"
       options.port
+      "--dir"
+      conf.publicDir
     ]
     options.env = _.extend process.env, options.env
 
@@ -59,3 +62,4 @@ module.exports = (->
 
   server: server
 )()
+

@@ -6,7 +6,7 @@ config = require('../../config')
 
 cssTask = (conf) ->
   gulp.src(conf.srcDir + "/**/*.css")
-    .pipe(gulp.dest(conf.outputDir + ""))
+    .pipe(gulp.dest(conf.publicDir + ""))
     .pipe(
       gulpif(conf.dev, livereload())
     )
