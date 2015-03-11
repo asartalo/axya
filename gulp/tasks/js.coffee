@@ -9,8 +9,5 @@ jsTask = (conf) ->
     .pipe(gulpif(conf.dev, livereload()))
 
 gulp.task "js", ->
-  jsTask(config())
-
-gulp.task "js:test", ->
-  jsTask(config('test'))
+  jsTask(config(process.env.AXYA_ENV))
 

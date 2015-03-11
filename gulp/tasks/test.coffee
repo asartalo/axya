@@ -2,9 +2,17 @@
 
 gulp = require("gulp")
 runSequence = require('run-sequence')
+prozes = require('../prozes')
 
-gulp.task "tdd", (done) ->
+gulp.task "tdd-standalone", (done) ->
   runSequence("test:go", "test:unit", "test:e2e", done)
 
+gulp.task "tdd", (done) ->
+  prozes('tdd-standalone', 'test', done)
+
+gulp.task "test-standalone", (done) ->
+  runSequence("build", ["test:e2e", "test:unit", "test:go"], done)
+
 gulp.task "test", (done) ->
-  runSequence("build:test", ["test:e2e", "test:unit", "test:go"], done)
+  prozes('test-standalone', 'test', done)
+

@@ -3,7 +3,6 @@
 # Module for starting/stopping go server
 
 _ = require('lodash')
-conf = require('../config')
 spawn = require("child_process").spawn
 gutil = require("gulp-util")
 split = require("split")

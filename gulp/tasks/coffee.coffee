@@ -35,8 +35,5 @@ coffeeTask = (conf) ->
   bundle()
 
 gulp.task "coffee", ->
-  coffeeTask(config())
-
-gulp.task "coffee:test", ->
-  coffeeTask(config('test'))
+  coffeeTask(config(process.env.AXYA_ENV))
 

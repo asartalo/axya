@@ -13,7 +13,7 @@ jadeTask = (conf) ->
     .pipe(gulpif(conf.dev, livereload()))
 
 gulp.task "jade", ->
-  jadeTask(config())
+  jadeTask(config(process.env.AXYA_ENV))
 
 gulp.task "jade:test", ->
   jadeTask(config('test'))

@@ -12,8 +12,5 @@ cssTask = (conf) ->
     )
 
 gulp.task "css", ->
-  cssTask(config())
-
-gulp.task "css:test", ->
-  cssTask(config('test'))
+  cssTask(config(process.env.AXYA_ENV))
 

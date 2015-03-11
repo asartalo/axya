@@ -26,8 +26,5 @@ lessTask = (conf) ->
     .pipe gulpif(conf.dev, livereload())
 
 gulp.task "less", ->
-  lessTask(config())
-
-gulp.task "less:test", ->
-  lessTask(config('test'))
+  lessTask(config(process.env.AXYA_ENV))
 
