@@ -5,14 +5,14 @@ split = require("split")
 spawn = require("child_process").spawn
 server = require("../../server").server
 
-conf = require('../../../config')
-console.log server
+conf = require('../../../config')('test')
 
 webserver = null
 
 gulp.task "test:server", (done) ->
   webserver = server(
-    port: 9877,
+    port: conf.port,
+    env: require('../../env')('test')
     logLabel: 'test server',
     ready: ->
       setTimeout(
@@ -40,15 +40,17 @@ gulp.task "test:e2e", ['test:server'], (done) ->
   cmd = conf.rootDir + '/node_modules/protractor/bin/protractor'
   prot = spawn(
     cmd,
-    ['--baseUrl=http://127.0.0.1:9877', conf.rootDir + "/gulp/protractor.conf.js"]
+    ["--baseUrl=http://127.0.0.1:#{conf.port}", conf.rootDir + "/gulp/protractor.conf.js"]
   )
 
   prot.on 'close', (code) ->
+    error = null
     if code != 0
       gutil.log gutil.colors.red("protractor exited with code #{code}")
+      error = { message: "E2E Test failure" }
     if webserver
       webserver.stop()
-    done()
+    done(error)
 
   prot.stdout.pipe(split()).on 'data', (line) ->
     if line.match /NoSuchElementError:/
@@ -67,6 +69,7 @@ gulp.task "test:e2e", ['test:server'], (done) ->
       title: "E2E Test Failure/Error"
       message: err
     webserver.stop()
+    done()
 
   return
 

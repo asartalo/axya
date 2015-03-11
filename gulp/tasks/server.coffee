@@ -1,9 +1,10 @@
 gulp = require("gulp")
 server = require("../server").server
+conf = require('../../config')()
 
 gulp.task "server", (done) ->
   server(
-    port: 9876,
+    port: conf.port,
     ready: ->
       done()
   )

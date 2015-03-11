@@ -6,5 +6,6 @@
 # You will need to set these on the server you deploy to.
 
 module.exports =
-  PORT: 9876
+  AXYA_PORT: 9876
+  AXYA_ENV: 'development'
 

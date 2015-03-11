@@ -1,15 +1,16 @@
 browserify = require("browserify")
 coffee = require("gulp-coffee")
 gulp = require("gulp")
+gulpif = require('gulp-if')
 gutil = require("gulp-util")
 livereload = require("gulp-livereload")
 notifier = require('node-notifier')
 source = require("vinyl-source-stream")
 
-conf = require('../../config')
+config = require('../../config')
 
-gulp.task "coffee", ->
-  config =
+coffeeTask = (conf) ->
+  coffeeConfig =
     cache: {}
     packageCache: {}
     fullPaths: true
@@ -17,18 +18,8 @@ gulp.task "coffee", ->
     extensions: [".coffee"]
 
   conf.debug = true  if conf.dev
-  bundler = browserify(config)
+  bundler = browserify(coffeeConfig)
   bundle = ->
-
-    # Report compile errors
-
-    # Notify on error. Uses node-notifier
-
-    # Use vinyl-source-stream to make the
-    # stream gulp compatible. Specifiy the
-    # desired output filename here.
-
-    # Specify the output destination
     bundler.bundle().on("error", (error) ->
       gutil.log gutil.colors.red(error.message)
       notifier.notify
@@ -39,7 +30,13 @@ gulp.task "coffee", ->
       return
     ).pipe(source("app.js"))
       .pipe(gulp.dest(conf.outputDir + "/js"))
-      .pipe(livereload())
+      .pipe(gulpif(conf.dev, livereload()))
 
   bundle()
+
+gulp.task "coffee", ->
+  coffeeTask(config())
+
+gulp.task "coffee:test", ->
+  coffeeTask(config('test'))
 

@@ -22,7 +22,7 @@
     "browserify-shim": "^3.8.1",
     "coffee-script": "^1.8.0",
     "coffeeify": "^0.7.0",
-    "gulp": "^3.8.10",
+    "gulp": "^3.8.11",
     "gulp-coffee": "^2.2.0",
     "gulp-if": "^1.2.4",
     "gulp-jade": "^0.7.0",

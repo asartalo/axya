@@ -10,3 +10,13 @@ gulp.task "build", [
   "vendor_fonts"
 ]
 
+gulp.task "build:test", [
+  "compile"
+  "jade:test"
+  "coffee:test"
+  "js:test"
+  "less:test"
+  "css:test"
+  "vendor_fonts"
+]
+

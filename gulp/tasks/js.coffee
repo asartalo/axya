@@ -1,11 +1,16 @@
 gulp = require("gulp")
 gulpif = require("gulp-if")
 livereload = require("gulp-livereload")
+config = require('../../config')
 
-conf = require('../../config')
-
-gulp.task "js", ->
+jsTask = (conf) ->
   gulp.src(conf.srcDir + "/**/*.js")
     .pipe(gulp.dest(conf.outputDir + "/"))
     .pipe(gulpif(conf.dev, livereload()))
+
+gulp.task "js", ->
+  jsTask(config())
+
+gulp.task "js:test", ->
+  jsTask(config('test'))
 

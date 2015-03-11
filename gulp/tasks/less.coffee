@@ -5,17 +5,9 @@ livereload = require("gulp-livereload")
 path = require("path")
 plumber = require("gulp-plumber")
 
-conf = require('../../config')
+config = require('../../config')
 
-# For sourcemaps
-gulp.task "less_copy", ->
-  gulp.src(conf.srcDir + "/**/*.less")
-    .pipe(
-      gulpif(conf.dev, gulp.dest(conf.outputDir + ""))
-    )
-
-gulp.task "less", [], ->
-
+lessTask = (conf) ->
   # This makes it easy to use sourcemaps with devtools
 
   # Notify on error. Uses node-notifier
@@ -33,4 +25,9 @@ gulp.task "less", [], ->
     )
     .pipe gulpif(conf.dev, livereload())
 
+gulp.task "less", ->
+  lessTask(config())
+
+gulp.task "less:test", ->
+  lessTask(config('test'))
 

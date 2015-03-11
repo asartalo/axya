@@ -1,4 +1,4 @@
-var conf = require('../config');
+var conf = require('../config')('test');
 
 exports.config = {
   seleniumPort: 9879,

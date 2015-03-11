@@ -3,17 +3,17 @@
 _ = require('lodash')
 
 try
-  localConfig = require('../local.env')
+  localEnv = require('../local.env')
 catch e
-  localConfig = {}
+  localEnv = {}
 
 envs =
   test:
-    NODE_ENV: 'test'
-  prod:
-    NODE_ENV: 'production'
-  all: localConfig
+    AXYA_ENV: 'test'
+  production:
+    AXYA_ENV: 'production'
+  all: localEnv
 
 module.exports = (env = 'development') ->
-  _.extend(process.env, envs[env] || {}, envs.all)
+  _.extend({}, process.env, envs.all, envs[env] || {})
 
