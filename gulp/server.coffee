@@ -9,8 +9,11 @@ split = require("split")
 conf = require('../config')()
 
 module.exports = (->
+  cp = null
 
   server = (options) ->
+    if cp
+      cp.stop()
 
     log = ->
       args = Array.prototype.slice.call(arguments)
@@ -32,10 +35,19 @@ module.exports = (->
     options.env = _.extend process.env, options.env
 
     cp = spawn(options.bin, args, detached: true)
+    hasStarted = false
+    onlineCheck = setTimeout(
+      ->
+        unless hasStarted
+          options.ready()
+      3000
+    )
 
     cp.stdout.pipe(split()).on 'data', (line) ->
       if line.match /^Starting Server/
         log gutil.colors.green(line)
+        hasStarted = true
+        clearTimeout(onlineCheck)
         options.ready()
       else
         log line
@@ -46,18 +58,26 @@ module.exports = (->
     cp.on 'close', (code, signal) ->
       log "Server Stopped."
 
-    cp.stop = ->
+    cp.stop = (callback) ->
       cp.kill('SIGINT')
+      # cp = null
+      callback() if callback
 
-    process.on 'SIGINT', ->
-      cp.stop()
+    fullStop = ->
+      cp.stop() if cp
       setTimeout(
         ->
           process.exit()
         1000
       )
 
+    process.on 'SIGINT', fullStop
+
     cp
+
+  server.stop = (done) ->
+    return cp.stop(done) if cp && cp.stop
+    done()
 
   server: server
 )()
