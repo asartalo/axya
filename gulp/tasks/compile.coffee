@@ -1,8 +1,18 @@
 "use strict"
 
 gulp = require("gulp")
-shell = require("gulp-shell")
+shell = require('../shell')
 conf = require('../../config')()
 
-gulp.task "compile", shell.task(["go build -o #{conf.outputDir}/serve server/serve.go"])
+gulp.task "compile", (done) ->
+  shell(
+    "go"
+    [
+      "build"
+      "-o"
+      "#{conf.outputDir}/serve"
+      "server/serve.go"
+    ]
+    callback: done
+  )
 

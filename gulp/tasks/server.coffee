@@ -9,6 +9,8 @@ gulp.task "server", (done) ->
     port: conf.port,
     ready: ->
       done()
+    fail: ->
+      done()
   )
 
 gulp.task "server:stop", (done) ->

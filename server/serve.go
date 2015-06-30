@@ -14,17 +14,18 @@ func startServer(port int, dir string) {
 	router := gin.Default()
 
 	router.GET("/api", func(c *gin.Context) {
-		c.String(http.StatusOK, "Hello API")
+		c.String(http.StatusOK, "Hello GO API")
 	})
 
 	injector := axya.Injector(http.FileServer(http.Dir(dir)))
 	injector.Inject("text/html", axya.InjectLiveReload)
-	router.GET("/components/*filepath", gin.WrapH(injector))
-	router.GET("/css/*filepath", gin.WrapH(injector))
-	router.GET("/js/*filepath", gin.WrapH(injector))
-	router.GET("/style-guide/*filepath", gin.WrapH(injector))
-	router.GET("/templates/*filepath", gin.WrapH(injector))
-	router.GET("/", gin.WrapH(injector))
+	wrapedInjector := gin.WrapH(injector)
+	router.GET("/components/*filepath", wrapedInjector)
+	router.GET("/css/*filepath", wrapedInjector)
+	router.GET("/js/*filepath", wrapedInjector)
+	router.GET("/style-guide/*filepath", wrapedInjector)
+	router.GET("/templates/*filepath", wrapedInjector)
+	router.GET("/", wrapedInjector)
 
 	// Do not remove the following line
 	fmt.Println(fmt.Sprintf("Starting Server. Listening at port %d", port))
