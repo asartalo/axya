@@ -62,6 +62,7 @@ module.exports = (->
       cp.kill('SIGINT')
       # cp = null
       callback() if callback
+      process.removeListener 'SIGINT', fullStop
 
     fullStop = ->
       cp.stop() if cp
