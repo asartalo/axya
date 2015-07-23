@@ -11,6 +11,6 @@ gulp.task "watch", ->
   gulp.watch "app/**/*.css", ["css"]
   gulp.watch "app/**/*.*", ["tdd"]
   gulp.watch "model/**/*.*", ["tdd"]
-  gulp.watch "server/**/*.go", ["reload"]
+  gulp.watch "./**/*.go", ["reload"]
   return
 

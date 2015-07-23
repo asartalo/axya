@@ -1,4 +1,5 @@
 gulp = require("gulp")
+changed = require("gulp-changed")
 gulpif = require('gulp-if')
 plumber = require("gulp-plumber")
 jade = require("gulp-jade")
@@ -7,6 +8,7 @@ config = require('../../config')
 
 jadeTask = (conf) ->
   gulp.src(conf.srcDir + "/**/*.jade")
+    .pipe(changed(conf.publicDir))
     .pipe(plumber())
     .pipe(jade())
     .pipe(gulp.dest(conf.publicDir))

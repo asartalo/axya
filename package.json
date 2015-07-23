@@ -48,5 +48,8 @@
     "run-sequence": "^1.0.2",
     "split": "^0.3.2",
     "vinyl-source-stream": "^0.1.1"
+  },
+  "dependencies": {
+    "gulp-changed": "^1.2.1"
   }
 }

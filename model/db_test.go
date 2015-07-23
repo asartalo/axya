@@ -29,19 +29,29 @@ func TestModel(t *testing.T) {
 			})
 
 			Convey("And a user is created", func() {
-				appDb.NewUser("johndoe", "secret")
+				newuser, newerr := appDb.NewUser("johndoe", "secret")
 				db := appDb.DbStore()
 
-				Convey("User is saved stored on db", func() {
+				findUser := func() (User, error) {
 					user := User{}
 					err := db.Get(&user, "SELECT * FROM user WHERE name=?", "johndoe")
+					return user, err
+				}
 
+				Convey("User is saved stored on db", func() {
+					user, err := findUser()
 					So(err, ShouldBeNil)
 					So(user.Name, ShouldEqual, "johndoe")
 
 					Convey("And should have hashed password", func() {
 						So(bcrypt.CompareHashAndPassword([]byte(user.PasswordHash), []byte("secret")), ShouldBeNil)
 					})
+				})
+
+				Convey("Returns new user and no error", func() {
+					user, _ := findUser()
+					So(newerr, ShouldBeNil)
+					So(newuser, ShouldResemble, user)
 				})
 
 				Convey("User can be authenticated", func() {

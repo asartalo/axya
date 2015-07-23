@@ -25,13 +25,25 @@ func (db *appDb) Close() error {
 	return db.db.Close()
 }
 
-func (db *appDb) NewUser(name string, password string) {
-	stmt, _ := db.db.Preparex(
+// TODO: Add better error messages. See Authenticate()
+func (db *appDb) NewUser(name string, password string) (user User, err error) {
+	stmt, err := db.db.Preparex(
 		`INSERT INTO user(name, password_hash) ` +
 			`VALUES (?, ?);`,
 	)
-	hash, _ := bcrypt.GenerateFromPassword([]byte(password), 5)
-	stmt.Exec(name, string(hash))
+	if err != nil {
+		return
+	}
+	hash, err := bcrypt.GenerateFromPassword([]byte(password), 5)
+	if err != nil {
+		return
+	}
+	_, err = stmt.Exec(name, string(hash))
+	if err != nil {
+		return
+	}
+	user, err = db.findUser(name)
+	return
 }
 
 func (db *appDb) Authenticate(name string, password string) (User, error) {
@@ -54,7 +66,7 @@ func (db *appDb) findUser(name string) (User, error) {
 }
 
 type User struct {
-	Name         string
+	Name         string `form:"name" json:"name"`
 	PasswordHash string `db:"password_hash"`
 }
 
@@ -85,7 +97,7 @@ func (db *appDb) createUserTable() (err error) {
 		`CREATE TABLE user (` +
 			`name            string NOT NULL, ` +
 			`password_hash   string NOT NULL); ` +
-			`CREATE INDEX user_idx ON user (name);`,
+			`CREATE UNIQUE INDEX user_idx ON user (name);`,
 	)
 	return err
 }

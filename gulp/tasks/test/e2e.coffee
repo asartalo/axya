@@ -68,8 +68,6 @@ gulp.task "test:e2e", ['test:server'], (done) ->
     notifier.notify
       title: "E2E Test Failure/Error"
       message: err
-    webserver.stop()
-    done()
 
   return
 
