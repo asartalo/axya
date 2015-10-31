@@ -22,5 +22,5 @@ describe "E2E: Logging in", ->
       expect(browser.getCurrentUrl()).toContain('#/dashboard')
 
     it 'should have dashboard text', ->
-      expect($('.page-title').getText()).toEqual('Dashboard')
+      expect($('.page-header').getText()).toEqual('Dashboard')
 

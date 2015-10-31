@@ -44,8 +44,6 @@ gulp.task "coffee", ->
     for d in directories
       fname = componentsDir + "/#{d}/index.coffee"
       if fs.existsSync(fname)
-        console.log fname
         files.push fname
-    console.log files
     coffeeTask(files, conf)
   )

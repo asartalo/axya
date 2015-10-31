@@ -1,12 +1,14 @@
-.row
-  .col-sm-3.col-md-2.sidebar
-    ul.nav.nav-sidebar
-      li.active
-        a(href='#') Overview
-      li
-        a(href='#') Reports
-      li
-        a(href='#') Analytics
-      li
-        a(href='#') Export
-
+md-sidenav.md-sidenav-left.md-whiteframe-4dp(
+  layout="column" md-component-id="left" md-is-locked-open="true"
+)
+  md-content.layout-padding(md-theme="docs-dark")
+    md-menu
+      md-menu-content
+        md-menu-item
+          md-button Overview
+        md-menu-item
+          md-button Reports
+        md-menu-item
+          md-button Analytics
+        md-menu-item
+          md-button Export
