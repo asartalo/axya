@@ -1,6 +1,6 @@
 'use strict'
 
-describe "E2E: Logging in", ->
+xdescribe "E2E: Logging in", ->
   homePage = new (require('./pages/home'))
 
   describe 'with incorrect credentials', ->

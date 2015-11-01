@@ -11,6 +11,10 @@ module.exports = class
   setPassword: (password) ->
     $('#inputPassword').sendKeys(password)
 
+  goToSignUp: ->
+    $('#signup-link').click()
+    browser.waitForAngular()
+
   login: (name, password) ->
     @setName(name)
     @setPassword(password)
