@@ -5,7 +5,7 @@ runSequence = require('run-sequence')
 prozes = require('../prozes')
 
 gulp.task "tdd-standalone", (done) ->
-  runSequence("test:go", "test:unit", "test:e2e", done)
+  runSequence("test:unit", "test:e2e", done)
 
 gulp.task "tdd", (done) ->
   prozes('tdd-standalone', 'test', done)

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/asartalo/axya/model"
-	server "github.com/asartalo/axya/serverutils"
+	server "github.com/asartalo/axyaserve"
+	"github.com/asartalo/axyaserve/model"
 	"github.com/codegangsta/cli"
 	"os"
 )
