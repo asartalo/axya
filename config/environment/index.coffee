@@ -9,7 +9,7 @@ _ = require('lodash')
 module.exports = (environment) ->
   all =
     domain: process.env.DOMAIN
-    env: process.env.AXYA_ENV
+    env:  environment || process.env.AXYA_ENV
     dev:  false
     prod: false
     rootDir: path.normalize(__dirname + '/../..')
@@ -18,6 +18,5 @@ module.exports = (environment) ->
 
   merged = _.merge(all, require('./' + environment) or {})
   merged.publicDir = merged.outputDir + '/public'
-
   merged
 

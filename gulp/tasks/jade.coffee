@@ -6,7 +6,8 @@ jade = require("gulp-jade")
 livereload = require("gulp-livereload")
 config = require('../../config')
 
-jadeTask = (conf) ->
+jadeTask = (env) ->
+  conf = config(env)
   gulp.src(conf.srcDir + "/**/*.jade")
     .pipe(changed(conf.publicDir))
     .pipe(plumber())
@@ -15,8 +16,8 @@ jadeTask = (conf) ->
     .pipe(gulpif(conf.dev, livereload()))
 
 gulp.task "jade", ->
-  jadeTask(config(process.env.AXYA_ENV))
+  jadeTask(process.env.AXYA_ENV)
 
 gulp.task "jade:test", ->
-  jadeTask(config('test'))
+  jadeTask('test')
 

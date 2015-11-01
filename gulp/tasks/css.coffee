@@ -4,7 +4,8 @@ livereload = require("gulp-livereload")
 
 config = require('../../config')
 
-cssTask = (conf) ->
+cssTask = (env) ->
+  conf = config(env)
   gulp.src(conf.srcDir + "/**/*.css")
     .pipe(gulp.dest(conf.publicDir + ""))
     .pipe(
@@ -12,5 +13,10 @@ cssTask = (conf) ->
     )
 
 gulp.task "css", ->
-  cssTask(config(process.env.AXYA_ENV))
+  cssTask(process.env.AXYA_ENV)
+
+gulp.task "css:test", ->
+  cssTask("test")
+
+
 

@@ -8,7 +8,8 @@ path = require("path")
 
 config = require('../../config')
 
-lessTask = (conf) ->
+lessTask = (env) ->
+  conf = config(env)
   # This makes it easy to use sourcemaps with devtools
 
   # Notify on error. Uses node-notifier
@@ -24,5 +25,8 @@ lessTask = (conf) ->
     .pipe gulpif(conf.dev, livereload())
 
 gulp.task "less", ->
-  lessTask(config(process.env.AXYA_ENV))
+  lessTask(process.env.AXYA_ENV)
+
+gulp.task "less:test", ->
+  lessTask('test')
 

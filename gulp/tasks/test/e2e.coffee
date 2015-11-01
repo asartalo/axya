@@ -9,7 +9,11 @@ conf = require('../../../config')('test')
 
 webserver = null
 
-gulp.task "test:server", (done) ->
+gulp.task 'test:db', (done) ->
+  spawn("rm", [conf.AXYA_DB])
+
+gulp.task "test:server", ['test:db'], (done) ->
+  console.log "TEST:SERVER", conf
   webserver = server(
     port: conf.port,
     env: require('../../env')('test')

@@ -11,7 +11,6 @@ source = require("vinyl-source-stream")
 config = require('../../config')
 
 coffeeTask = (files, conf) ->
-
   coffeeConfig =
     cache: {}
     packageCache: {}
@@ -33,11 +32,10 @@ coffeeTask = (files, conf) ->
     ).pipe(source("app.js"))
       .pipe(gulp.dest(conf.publicDir + "/js"))
       .pipe(gulpif(conf.dev, livereload()))
-
   bundle()
 
-gulp.task "coffee", ->
-  conf = config(process.env.AXYA_ENV)
+coffeeRunner = (env = 'development') ->
+  conf = config(env)
   files = [conf.srcDir + "/js/app.coffee"]
   componentsDir = conf.srcDir + "/components"
   fs.readdir(componentsDir, (err, directories) ->
@@ -47,3 +45,10 @@ gulp.task "coffee", ->
         files.push fname
     coffeeTask(files, conf)
   )
+
+gulp.task "coffee", ->
+  coffeeRunner(process.env.AXYA_ENV)
+
+gulp.task "coffee:test", ->
+  coffeeRunner('test')
+

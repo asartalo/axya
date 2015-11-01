@@ -11,7 +11,7 @@ gulp.task "tdd", (done) ->
   prozes('tdd-standalone', 'test', done)
 
 gulp.task "test-standalone", (done) ->
-  runSequence("build", ["test:e2e", "test:unit", "test:go"], done)
+  runSequence("build:test", ["test:e2e", "test:unit"], done)
 
 gulp.task "test", (done) ->
   prozes('test-standalone', 'test', done)
