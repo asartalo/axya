@@ -1,9 +1,8 @@
 'use strict'
 
-module.exports = class
-
-  get: ->
-    browser.get('/')
+class HomePage extends require('./base')
+  constructor: ->
+    @pagePath = '/'
 
   setName: (name) ->
     $('#inputUsername').sendKeys(name)
@@ -20,4 +19,6 @@ module.exports = class
     @setPassword(password)
     $('#login-submit-btn').click()
     browser.waitForAngular()
+
+module.exports = HomePage
 

@@ -1,8 +1,6 @@
 'use strict'
+class SignupPage extends require('./base')
+  constructor: ->
+    @pagePath = 'signup'
 
-module.exports = class
-
-  get: ->
-    browser.get('/#signup')
-
-
+module.exports = SignupPage

@@ -1,10 +1,12 @@
 'use strict'
 
-xdescribe "E2E: Signing Up", ->
-  homePage = new (require('./pages/home'))
+describe "E2E: Signing Up", ->
+  signupPage = new (require('./pages/signup'))
   beforeEach ->
-    homePage.get()
+    signupPage.get()
 
-  # describe 'signup
+  describe 'page', ->
+    it 'exists', ->
+      expect(signupPage.heading()).toContain("Signup")
 
 
