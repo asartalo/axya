@@ -1,6 +1,6 @@
 'use strict'
 
-# require './controller'
+require './controller'
 
 angular.module('axyaApp').config [
   '$stateProvider', '$urlRouterProvider',
@@ -8,6 +8,7 @@ angular.module('axyaApp').config [
     $stateProvider
       .state 'signup',
         url: '/signup'
+        controller: 'SignupCtrl'
         templateUrl: 'components/signup/view.html'
 ]
 

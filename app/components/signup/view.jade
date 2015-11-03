@@ -1,4 +1,16 @@
 md-content
   h1.page-header Signup to Axya
   // signup-form
+  form(name="signupForm" ng-submit="signup(user)")
+    md-input-container(flex)
+      label(for="signup-name") Username
+      input#signup-name.form-control(type="text")
+    md-input-container(flex)
+      label(for="signup-password") Password
+      input#signup-password.form-control(type="password")
+    md-checkbox(aria-label="Remember me")
+      | Remember me
+    .actions
+      md-button#signup-submit.md-raised.md-primary(type="submit") Sign Up
+    md
 

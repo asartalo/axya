@@ -7,12 +7,9 @@ html
   body(layout="column" ng-app="axyaApp")
     include ./components/navigation/view.jade
 
-    div(flex layout="row")
-      include ./components/sidebar/view.jade
-
-      .main(layout="column" flex id="content")
-        md-content.md-padding(layout="column" flex ui-view)
-          h1 This is the Content
+    .main(layout="column" flex id="content")
+      md-content.md-padding(layout="column" flex ui-view)
+        h1 This is the Content
 
     script(src="js/app.js")
 
