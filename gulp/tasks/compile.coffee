@@ -11,7 +11,7 @@ gulp.task "compile", (done) ->
       "build"
       "-o"
       "#{conf.outputDir}/serve"
-      "server/serve.go"
+      "server/main/serve.go"
     ]
     callback: done
   )

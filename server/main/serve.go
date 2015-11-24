@@ -1,10 +1,11 @@
 package main
 
 import (
-	server "github.com/asartalo/axyaserve"
-	"github.com/asartalo/axyaserve/model"
-	"github.com/codegangsta/cli"
 	"os"
+
+	server "github.com/asartalo/axya/server"
+	"github.com/asartalo/axya/server/models"
+	"github.com/codegangsta/cli"
 )
 
 func main() {
@@ -35,7 +36,7 @@ func main() {
 			Usage:   "creates database tables and whatnot",
 			Action: func(c *cli.Context) {
 				// TODO: make db name a shared variable
-				model.CreateDb("./data.db")
+				models.CreateDb("./data.db")
 			},
 		},
 	}

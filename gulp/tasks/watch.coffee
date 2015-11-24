@@ -9,7 +9,7 @@ gulp.task "watch", ->
   gulp.watch "app/**/*.js", ["js"]
   gulp.watch "app/**/*.scss", ["sass"]
   gulp.watch "app/**/*.css", ["css"]
+  gulp.watch "./**/*.go", ["test:go", "reload"]
   gulp.watch "app/**/*.*", ["tdd"]
-  gulp.watch "./**/*.go", ["reload"]
   return
 

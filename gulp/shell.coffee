@@ -6,6 +6,7 @@ gutil = require('gulp-util')
 module.exports = (command, args, options) ->
   stdout = ''
   stderr = ''
+  options = options || {}
 
   child = spawn(command, args, options)
 
