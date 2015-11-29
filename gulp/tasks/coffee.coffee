@@ -37,13 +37,20 @@ coffeeTask = (files, conf) ->
 coffeeRunner = (env = 'development') ->
   conf = config(env)
   files = [conf.srcDir + "/js/app.coffee"]
-  componentsDir = conf.srcDir + "/components"
+  include("/components", conf, files, ->
+    include( "/pages", conf, files, ->
+      coffeeTask(files, conf)
+    )
+  )
+
+include = (directory, conf, files, callback) ->
+  componentsDir = conf.srcDir + directory
   fs.readdir(componentsDir, (err, directories) ->
     for d in directories
       fname = componentsDir + "/#{d}/index.coffee"
       if fs.existsSync(fname)
         files.push fname
-    coffeeTask(files, conf)
+    callback() if callback
   )
 
 gulp.task "coffee", ->

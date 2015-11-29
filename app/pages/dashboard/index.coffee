@@ -1,3 +1,5 @@
+require './dashboard.controller'
+
 angular.module('axyaApp').config [
   '$stateProvider', '$urlRouterProvider',
   ($stateProvider, $urlRouterProvider) ->
@@ -5,5 +7,6 @@ angular.module('axyaApp').config [
     $stateProvider
       .state 'dashboard',
         url: '/dashboard'
-        templateUrl: 'components/dashboard/view.html'
+        controller: 'DashboardCtrl'
+        templateUrl: 'pages/dashboard/view.html'
 ]

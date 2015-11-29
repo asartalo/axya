@@ -11,16 +11,17 @@ describe "E2E: Signing Up", ->
       expect(signupPage.heading()).toContain("Signup")
 
   describe 'signing up', ->
-    userData = require('./data/user')
-    user = userData()
+    newUser = require('./data/user')
+    user = {}
 
     beforeEach ->
-      signupPage.signUp(userData.name, userData.password)
+      user = newUser()
+      signupPage.signUp(user.name, user.password)
 
     it 'logs in to dashboard', ->
       expect(browser.getCurrentUrl()).toContain('/dashboard')
 
-    xit 'remembers user', ->
-      element(By.css('dashboard-page').getText()).toContain('jane')
+    it 'remembers user', ->
+      expect(signupPage.textContent()).toContain(user.name)
 
 

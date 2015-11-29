@@ -10,8 +10,8 @@ config = require('../../config')
 jadeTask = (env) ->
   conf = config(env)
   gulp.src(conf.srcDir + "/**/*.jade")
-    .pipe(newer(conf.publicDir))
-    .pipe(plumber())
+    # TODO: Figure out how to map .jade to .html files for newer match
+    # .pipe(newer(conf.srcDir))
     .pipe(jade())
     .pipe(gulp.dest(conf.publicDir))
     .pipe(gulpif(conf.dev, livereload()))

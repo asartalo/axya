@@ -4,10 +4,10 @@ md-content
   form(name="signupForm" ng-submit="signup(user)")
     md-input-container(flex)
       label(for="signup-name") Username
-      input#signup-name.form-control(type="text")
+      input#signup-name.form-control(type="text" ng-model="user.name")
     md-input-container(flex)
       label(for="signup-password") Password
-      input#signup-password.form-control(type="password")
+      input#signup-password.form-control(type="password" ng-model="user.password")
     md-checkbox(aria-label="Remember me")
       | Remember me
     .actions

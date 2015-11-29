@@ -1,6 +1,6 @@
 'use strict'
 
-xdescribe "E2E: Logging in", ->
+describe "E2E: Logging in", ->
   homePage = new (require('./pages/home'))
 
   describe 'with incorrect credentials', ->
@@ -16,11 +16,11 @@ xdescribe "E2E: Logging in", ->
 
     beforeEach ->
       homePage.get()
-      homePage.login("John", "Secret")
+      homePage.login("Jane", "secret")
 
     it 'should go to dashboard', ->
       expect(browser.getCurrentUrl()).toContain('#/dashboard')
 
-    it 'should have dashboard text', ->
-      expect($('.page-header').getText()).toEqual('Dashboard')
+    it 'should remember user\'s name', ->
+      expect(homePage.textContent()).toContain("Jane")
 

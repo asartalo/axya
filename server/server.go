@@ -19,6 +19,12 @@ func StartServer(port int, staticDir string) {
 	handler.Run(fmt.Sprintf(":%d", port))
 }
 
+func SeedDb() {
+	conn := os.Getenv("AXYA_DB")
+	appDb, _ := models.CreateDb(conn)
+	appDb.NewUser("Jane", "secret")
+}
+
 func MainHandler(port int, dir string) *gin.Engine {
 	engine := gin.Default()
 	conn := os.Getenv("AXYA_DB")
@@ -89,6 +95,7 @@ func MainHandler(port int, dir string) *gin.Engine {
 	injector.Inject("text/html", InjectLiveReload)
 	wrapedInjector := gin.WrapH(injector)
 	engine.GET("/components/*filepath", wrapedInjector)
+	engine.GET("/pages/*filepath", wrapedInjector)
 	engine.GET("/css/*filepath", wrapedInjector)
 	engine.GET("/js/*filepath", wrapedInjector)
 	engine.GET("/style-guide/*filepath", wrapedInjector)

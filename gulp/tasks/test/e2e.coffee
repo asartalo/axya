@@ -4,16 +4,28 @@ notifier = require('node-notifier')
 split = require("split")
 spawn = require("child_process").spawn
 server = require("../../server").server
+shell = require('../../shell')
 
 conf = require('../../../config')('test')
-
 webserver = null
 
 gulp.task 'test:db', ->
-  spawn("rm", [conf.AXYA_DB])
+  env = require("../../env")("test")
+  spawn("rm", [env.AXYA_DB])
   return
 
-gulp.task "test:server", ['test:db'], (done) ->
+gulp.task "test:seed", ['test:db'], (done) ->
+  env = require("../../env")("test")
+  shell(
+    "#{conf.outputDir}/serve"
+    ["seed"],
+    callback: done
+    env: env
+  )
+
+
+gulp.task "test:server", ['test:seed'], (done) ->
+  env = require("../../env")("test")
   webserver = server(
     port: conf.port,
     env: require('../../env')('test')
@@ -21,7 +33,6 @@ gulp.task "test:server", ['test:db'], (done) ->
     ready: ->
       setTimeout(
         ->
-          console.log 'Test Server Ready'
           done()
         2000
       )

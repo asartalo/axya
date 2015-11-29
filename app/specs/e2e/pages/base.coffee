@@ -13,5 +13,8 @@ module.exports = class
   heading: ->
     element(By.css('.page-header')).getText()
 
+  textContent: ->
+    element(By.css('body')).getText()
+
 
 

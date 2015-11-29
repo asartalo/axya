@@ -57,7 +57,7 @@ var _ = Describe("Injector", func() {
 				content, _ = ioutil.ReadAll(w.Body)
 			})
 
-			It("Its response should be not be injected", func() {
+			It("Response should be not be injected", func() {
 				Expect(string(content)).To(Equal(string(content)))
 			})
 		})

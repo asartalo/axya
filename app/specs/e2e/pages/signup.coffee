@@ -6,6 +6,7 @@ class SignupPage extends require('./base')
   signUp: (name, password) ->
     @setName(name)
     @setPassword(password)
+    browser.waitForAngular()
     @submit()
 
   setName: (name) ->

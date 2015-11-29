@@ -9,6 +9,6 @@ angular.module('axyaApp').config [
       .state 'signup',
         url: '/signup'
         controller: 'SignupCtrl'
-        templateUrl: 'components/signup/view.html'
+        templateUrl: 'pages/signup/view.html'
 ]
 

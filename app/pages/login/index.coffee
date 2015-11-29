@@ -10,8 +10,8 @@ angular.module('axyaApp').config [
     $stateProvider
       .state 'index',
         url: '/'
-        templateUrl: 'components/home/view.html'
+        templateUrl: 'pages/home/view.html'
       .state 'login',
         url: '/login'
-        templateUrl: 'components/login/form.html'
+        templateUrl: 'pages/login/form.html'
 ]

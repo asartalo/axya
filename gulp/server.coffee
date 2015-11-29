@@ -27,6 +27,7 @@ module.exports = (->
         #
     , options)
     args = [
+      "s"
       "--port"
       options.port
       "--dir"
