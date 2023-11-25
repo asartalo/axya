@@ -53,6 +53,6 @@
     "vinyl-source-stream": "^0.1.1"
   },
   "dependencies": {
-    "gulp-changed": "^1.2.1"
+    "gulp-changed": "^3.2.0"
   }
 }
